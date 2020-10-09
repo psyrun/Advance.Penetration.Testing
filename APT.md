@@ -17,16 +17,11 @@
 ### 1.14 [ Tool  ](#1.14)
 ### 1.15 [Enumeration ](#1.15)
 ### 1.16 [ Exploitation ](#1.16)
-### 1.17 [ ](#1.17)
-### 1.18 [ ](#1.18)
-### 1.19 [ ](#1.19)
-### 1.20 [ ](#1.20)
-### 1.21 [ ](#1.21)
-
-
-
+### 1.17 [ Intelligent Scanning ](#1.17)
+### 1.18 [Creating security testing planning ](#1.18)
+### 1.19 [Testing Security Methods ](#1.19)
+#
 # <a name="1"></a>1. vulnerability 
-
 ## <a name="0.0"></a>0.0 What is Vulnerability
 - Which violates the product.
 - Attackers breaking into system.
