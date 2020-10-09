@@ -1,14 +1,13 @@
 # Contents
 # 1. [Vulnerability](#1).
 ### 0.0 [What is vulnerability](#0.0)
-### 1.1 [Vulnerability Assessment](#1.1)
-### 1.2 [Challenge of APT](#1.2)
-### 1.3 [Penetration Testing](#1.3)
+### 1.1 [Vulnerability Assessmentcanning
+#enumerationnandgfingerprintingnd#fingerprintingation Testing](#1.3)
 ### 1.4 [ Host scanner ](#1.4)
 ### 1.5 [ Network scanner ](#1.5)
 ### 1.6 [ Tasks for vulnerability scanners ](#1.6)
-### 1.7 [ Network Vulnerability scanning methods ](#1.7)
-### 1.8 [ Port scanning ](#1.8)
+### 1.7 [ Network Vulnerability Scanning methods ](#1.7)
+### 1.8 [ Port Scanning ](#1.8)
 ### 1.9 [ Critical intelligence ](#1.9)
 ### 1.10 [ UDP Port Scans ](#1.10)
 ### 1.11 [ TCP port scans](#1.11)
@@ -28,22 +27,25 @@
 ### 2.3 [Target Discovery ](#2.3)
 ### 2.4 [ Kali Tools ](#2.4)
 ### 2.5 [ Resources ](#2.5)
+#
+# 3.0 [](#3.0)
+### 2.6 [ ](#2.6)
+### 2.6 [ ](#2.6)
+
 # <a name="1"></a>1. vulnerability 
-## <a name="0.0"></a>0.0 What is Vulnerability
+## <a name="0.0"></a>1.0 What is Vulnerability
 - Which violates the product.
 - Attackers breaking into system.
 - To check system.
 - All system have vulnerability but not all have exploit.
-
-## <a name="1.0"></a>1.0 Vulnerability scanner
-
-- Check ports version patch level.
-- Generate reports.
-- Manual Scanning.
-- Scanner tool.
-- Scanner automate the process.
-- Reduces the time needed to compile lists of vulnerable system.
-- Do not replace trained security people.
+* Vulnerability scanner
+	- Check ports version patch level.
+	- Generate reports.
+	- Manual Scanning.
+	- Scanner tool.
+	- Scanner automate the process.
+	- Reduces the time needed to compile lists of vulnerable system.
+	- Do not replace trained security people.
 
 
 ## <a name="1.1"></a>1.1 vulnerability assessment
@@ -99,23 +101,16 @@
 
 * Auditing of new systems.
 	* Evaluate systems before they are brought online.
-	* Validate compliance with security policy.
-* Discovery of unknown systems.
-	* To detect configuration changes that create new vulnerabilities.
-* Educational.
-	* Might first learn of a vulnerability from scanner alerts.
+	* Validate compliance with securitycanning.
+enumeration andufingerprinting.
+	* To detect configuration changes that create new vcanningilenumerationuandifingerprinting first learn of a vulnerability from scanner alerts.
 
-## <a name="1.7"></a>1.7 Network Vulnerability scanning methods
-
-* Three main methods used by network vulnerability scanners.
-	* Port scanning.
-	* Live systems.
-	* Services and enumeration.
+## <a name="1.7"></a>1.7 Network Vulncanningtyenumerationeanddfingerprintingn methods used by network vulnerability scancanning Senumeration andefingerprintingervices and enumeration.
 * Each technique introduces increasing risk to end systems.
-	* Port scanning should not crash a system.
+	* Port Scanning should not crash a system.
 
-## <a name="1.8"></a>1.8 Port scanning
-* Port scanning determines which ports are listening on a targets.
+## <a name="1.8"></a>1.8 Port Scanning
+* Port Scanning determines which ports are listening on a targets.
 	* Many network services run on established well-known ports.
 	* FTP 21.
 	* TELNET 23.
@@ -248,13 +243,13 @@
 * Scanners are configured to skip these tests by default.
 * Usually require the operator to OK an alert before enabling.
 
-## <a name="1.17"></a> 1.17 Intelligent Scanning.
+## <a namecanning><enumerationtandifingerprinting
 
 * First generation tools performed serial scans.
 * Tests were run one after another.
 * Each test ran in its own context.
 * Required auditor to choose relevant tests.
-	* Tools did not detect the type of server that they were scanning.
+	* Tools did not detect the type of server that they were Scanning.
 	* IIS tests might be run against an Apache server.
 * Next-generation tools became more intelligent.
 * Use results from previous tests as input to later tests.
@@ -451,281 +446,270 @@
 * [whois](whois.com)
 * The victims own published information 
 * know what the organization user resume
+#
+# <a name="3.0"></a>3. Scanning, enumeration and fingerprinting
+
+## <a name="3.1"></a>3.1 Goal
+
+* Discover the specific detail that will allow matching of present assets to vulnerabilities and exploits.
+* Scanning is the active step of attempting to connect to systems to elicit a response.
+
+* For penetration testing the response is the key 
+	* SYN packet
+		* port closed
+			* RST
+		* port open
+			* SYN/ACK
+		* Any other response
+			* Some form of a device or firewall on the host.
+
+## Scanning analysis
+* Send in TCP and get back ICMP
+	* Filtering device or software is in place. we can check packets reach to destination or not.
+
+## Scanning Methodology
+
+* TCP connection
+	* 3 way handshake creates a socket and establish the connection.
+		* SYN
+		* SYN,ACK
+		* ACK
+	* Half open scan
+* Live systems
+	* We have to have targets.
+		* `-sP, -sn` in Nmap
+
+* netdiscover 
+	* checks for LAN
+	* have to be on the local subnet
+	* has a passive and active model
+	* good for initial site contact
+		* run on laptop while meeting clients. ;)
+	* `netdiscover -r ip_address/range`
+	* `netdiscover -p` for passive
+	* `netdiscover -i eth0 -p` (listen the network)
+	* `netdiscover -i eth0 -p` (enumerate the target without sending packets, we just have to sit on the network)
+
+* Nmap host discovery
+	* On local subnet uses ARP 
+	* ICMP is often blocked and host discovery can fail
+	* Use TCP host discovery sweep					
+	* [namp ip_address/range -PA80 -sn] 
+	* Ports
+		* What are the doors on these targets
+			* Remember all 0-65535 because Nmap only gives us the * enumeration of 1000 ports only.
+
+			* [-sS,-sT,-sU] ==> s= scan S= stealth scan; T= connect scan; U= UDP scan
+
+	* Services
+		* What is behind these doors
+			* [-sV] 
 
 
-#	2. SCANNING, ENUMERATION AND FINGERPRINTING
-		Goal
-			Discover the specific detail that will allow matching of present assests to tvulnerabilities and exploits.
-			Scannig is the active step of attempting to connect to systems to elicit a response
-			
-			For penetration testing the response is the key 
-				SYN packet
-					port closed
-						RST
-					port open
-						SYN/ACK
-					Any other response
-						Some form of a device or firewall on the host.
-			
-			Scanning analysis
-				Send in TCP and get back ICMP
-					filtering device or software is in place. we can check packets reach to destination or not.
-			
-			Scanning Methodology
+	[Nmap -sP ip_address/range] (identifies all the machines , vmware switches etc and we can eliminate the vmware machines from targets)
+	
+	* [Nmap -sS ip_address/range] (check all the ports)
+	
+	* [Nmap -sV ip_address] (check services running on the system)
+	
+	* [nmaap -A ip_address] (Enumerate target with all options for output to get in xml)
+	
+	* [Nmap -A ip_address -oX test.xml Nmap.xsl] (go to Nmap directory and then use this or just move the stylesheet to the current path)
+	
+	* [Nmap -sC ip_address] 
+	
+	* [Nmap --script smb OS-discovery ip_addrcanningsienumerationgandgfingerprintingte smb OS)
+	
+	* [Nmap -O ip_address] (operating system detection there are tons of packet sent but find the alternative for this)
 
-				TCP connection
-					3 way handshake creates a socket and establish the connection
-						SYN
-						SYN,ACK
-						ACK
-					Half open scan
-					
-								
-				Live systems
-					We have to have targets
-						[-sP, -sn] in Nmap
-					
-				netdiscover [checks for LAN]
-					have to be on the local subnet
-					has a passive and active model
-					good for initial site contact
-						run on laptop while meeting clients. ;)
-						
-					[netdiscover -r ip_address/range]
-					[netdiscover -p] for passive
-					[netdiscover -i eth0 -p] (listen the network)
-					[netdiscover -i eth0 -p] (enumerate the target without sending packets, we just have to sit on the network)
-					
-			
-				Nmap host discovery
-					On local subnet uses ARP 
-					ICMP is often blocked and host discovery can fail
-					Use TCP host discovery sweep					
-					[namp ip_address/range -PA80 -sn] 
-					Ports
-						What are the doors on these targets
-							Remember all 0-65535 because Nmap only gives us the enumeration of 1000 ports only.
-							
-							[-sS,-sT,-sU] ==> s= scan S= stealth scan; T= connect scan; U= UDP scan
-					
-					Services
-						What is behind these doors
-							[-sV] 
-					
+* TCP Dump(Low level Scanning)
+	* check its man page
+	* [tcpdump -x -A port 21] default eth0 interface.
+	* [tcpdump -x TCP] can find 3 way handshake 
+	* [tcpdump -dst ip_address]
+	* [tcpdump -nn -A -l|grep "User-Agent:"] -> open browsesr 
 
-					[Nmap -sP ip_address/range] (identifies all the machines , vmware switches etc and we can eliminate the vmware machines from targets)
-					->
-					[Nmap -sS ip_address/range] (check all the ports)
-					->
-					[Nmap -sV ip_address] (check services running on the system)
-					->
-					[nmaap -A ip_address] (Enumerate target with all options for output to get in xml)
-					->
-					[Nmap -A ip_address -oX test.xml Nmap.xsl] (go to Nmap directory and then use this or just move the stylesheet to the current path)
-					->
-					[Nmap -sC ip_address] 
-					->
-					[Nmap --script smb OS-discovery ip_address] (using scripting engine to enumerate smb OS)
-					->
-					[Nmap -O ip_address] (operating system detection there are tons of packet sent but find the alternative for this)
-					
-				TCP Dump(Low level scanning)
-					
-					check its man page
-					[tcpdump -x -A port 21] default eth0 interface.
-					[tcpdump -x TCP] can find 3 way handshake 
-					[tcpdump -dst ip_address]
-					[tcpdump -nn -A -l|grep "User-Agent:"] -> open browsesr 
-					
-				Tshark
-					check man
-					
-				dsniff
-					[dsniff] see only the credential on the network.
-					
-				
-				Unicornscan
-					checlk man
-					
-				
-				SSL Scan (we can check the ciphers to encrypt data , we can make traffic look like specific app using these cipher or if we have a vulnerability in the cipher than can exploit it)
-				
-				
-					[sslscan ip_address]
-					[sslscan --show-client-cas ip_address]
-					[sslscan --no-failed ip_address]
-				
-				ZMap
-					[zmap --bandwidth=1000M --target-port=445 --max-results=10000 --output-file=results.txt ip_address]
-				
-				Masscan
-					Fast scanner
-					Designed to scan the internet
-					similar to zmap
-					installed by default on kali
-			==>		can split the scan up and set times					
-					[masscan ip_address/range -p 80,445]
-					
-				Hping (powerful and fast, Master tool for crafting packet. More you learn hping more powerful you become)
-					quick way to identify 
-					[hping3 ipaddress --scan 0-65535 -S | more]
-					
-					Example:
-						vi attack.sig {any content}
-						[hping3 -2 -p 500 ip_address -d 137 -E attack.sig] {2=UDP, attackers port 500, 137 victim port -E attack.sig
-						[hping3 -2 -p 500 ip_address -d 100 -E attack.sig]  (bufferoverflow the port)
-						[hping3 --scan known ip_address -S] (Scan all the ports)
-						[hping3 --scan '1-3000' known ip_address -S] (Scan port from 1-3000)
-						[hping3 127.0.0.1 --listen signature --safe --icmp] (create icmp packet to send)
-						->
-						[hping3 127.0.0.1 --icmp -d 100 --sign signature --file /etc/passwd]
-						hping3 --flood ip_address
-				Source port scanning
-					Select source port scan and you can potentially bytpass stateless filters
-						Also in cisco routers the use of the "established" keyword (Ack==1) can indicate a weak ACL depending on the rule order
-					
-					Source ports that commonly bypass the filtering
-							port 20 ftp
-							port 53 DNS-Stuff
-							port 80
-					Options for source port selection
-						Nmap -gathering
-						netcat -packet
-						metasploit -set CPORT
-							can get hte payload through the filtering device.
-			Enumeration
-				Is used to gather more in depth information about the target, such as open shares and user account information.
-				Nmap [-sC, -A] for enumeration scanning
-				Windows targets and Linux/Unix with Samba
-				
-				nbstat
-				
-				nbtscan
-					gives a netbios machines
-					[nbtscan -v -s : ip_address/range]
-					if you see 1cG in the scan is a high value target.
-				
-				enum4linux
-					If we see domain controllers than we can change our mac to that domain controller and can perform MITM attack.
-					
-					[enum4linux ip_address]
-				
-				Sparta
-					Runs all of the tools for you
-					Like a portal for scanning and enumeration along with others.
-				
-				wpscan
-					wordpress vulnerability scanner
-					Can use for enumeration 
-						verision
-						users
-						plugins
-						themes
-					[wpscan --url ip_address/wordpress --enumerate u --enumerate t --enumerate p] u=users; t=themes p=plugins.
-				
-				Directory
-					Web servers may or may not expose their directories.
-					Kali has several tools for enumerating directories.
-						wfuzz
-						dirbuster
-						
-				Web App Technology
-					Have to determine what is running on the web servers to test it.
-					Whatweb
-						installed by default in kali
-						1700 plugins
-						supports different levels
-						-1
-							passive(defult)
-						-2
-							Polite
-						-3
-							Impolite-guess URL when plugin matches(smart, guess a few urls)
-						-4
-							Aggressive -guess URL for every plugin (guess a lot of urls like)
-						[whatweb domain_name ]
-				
-					
-				SMB OS Discovery
-					Nmap has scripts
-						[Nmap --script smb OS-discovery.nse --script-args=unsafe=1 -p 445 ip_address]
-				
-				SNMP
-					It is a gift because its a db full of information and we can extract data from a single query. works on UDP. 
-						[Nmap -sU -p 161 ip_address]
-						[snmpwalk -Os -c public -v 1 ip_address]
-						check Nmap scripts for snmp 
-						[/share/Nmap/script$ ls | snmp]
-				
-				
-				Manual Banner Grabbing
-					Connect to the port and investigate the response.
-						telnet
-						netcat
-					check the version of the service running and exploit available or previous exploit.
-					[nc -vn ip_address port_number]
-					
-					Dimtry
-						We can grab banner
-						[01]
-						[dmitry -winsepo ip_address]
-						[dmitry -pb ip_address] (email)
-					
-					Python
-					[	import scoket
-						bangrab = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-						bangrab.connect(("ip_address",port_number))
-						bangrab.recv(4096)
-						bangrab.close()
-					]
-					
-				Targets
-					TCP 43 
-						DNS zone transfer
-					UDP 137 
-						NetBIOS Name Service
-							16th byte represents data that can identify the type of machine 1C
-								A domain controller and can be exploited
-					RCP 139 
-						NetBIOS session service(SMB over NetBIOS)
-					UDP 161 
-						Simple Network Management Protocol (SNMP)
-					TCP/UDP 389 
-						Lightweight Direct3ory Acess protocol (LDAP)
-					RCP 445 
-						SMB over TCP/IP
-					TCP/UDP 3268 
-						Global catalog service
-					
-				
-							
-				Identify Vulnerablities
-					Manual
-					Tools
-				
-				Exploit
-					validation of the vulnerability
-					Manual and tools
-				
+* Tshark
+	* check man
+	
+* dsniff
+	* [dsniff] see only the credential on the network.
+
+
+* Unicornscan
+	* checlk man
+	
+
+* SSL Scan (we can check the ciphers to encrypt data , we can make traffic look like specific app using these cipher or if we have a vulnerability in the cipher than can exploit it)
+	* [sslscan ip_address]
+	* [sslscan --show-client-cas ip_address]
+	* [sslscan --no-failed ip_address]
+
+* ZMap
+	* [zmap --bandwidth=1000M --target-port=445 --max-results=10000 --output-file=results.txt ip_address]
+
+* Masscan
+	* Fast scanner
+	* Designed to scan the internet
+	* similar to zmap
+	* installed by default on kali
+	* > can split the scan up and set times	
+	* [masscan ip_address/range -p 80,445]
+
+* Hping (powerful and fast, Master tool for crafting packet. More you learn hping more powerful you become)
+	* quick way to identify 
+	* [hping3 ipaddress --scan 0-65535 -S | more]
+	* Example:
+		* vi attack.sig {any content}
+		* [hping3 -2 -p 500 ip_address -d 137 -E attack.sig] {2=UDP, * attackers port 500, 137 victim port -E attack.sig
+		* [hping3 -2 -p 500 ip_address -d 100 -E attack.sig]  (bufferoverflow the port)
+		* [hping3 --scan known ip_address -S] (Scan all the ports)
+		[* hping3 --scan '1-3000' known ip_addrecanning(Senumerationoand-fingerprintingng3 127.0.0.1 --listen signature --safe --icmp] (create icmp packet to send)
+		* [hping3 127.0.0.1 --icmp -d 100 --sign signature --file /etc/passwd]
+		* hping3 --flood ip_address
+* Source port Scanning
+	* Select source port scan and you can potentially bytpass stateless filters
+		* Also in cisco routers the use of the "established" keyword (Ack==1) can indicate a weak ACL depending on the rule order
+	
+	* Source ports that commonly bypass the filtering
+		* port 20 ftp
+		* port 53 DNS-Stuff
+		* port 80
+	* Options for source port selection
+		* Nmap -gathering
+		* canning-penumerationeandpfingerprintingT
+			* can get hte payload through the filtering device.
+## Enumeration
+	Is used to gather more in depth information about the target, such as open shares and user account information.
+	Nmap [-sC, -A] for enumeration Scanning
+	Windows targets and Linux/Unix with Samba
+	
+	nbstat
+	
+	nbtscan
+		gives a netbios machines
+		[nbtscan -v -s : ip_address/range]
+		if you see 1cG in the scan is a high value target.
+	
+	enum4linux
+		If we see domain controllers than we can change our mac to that domain cocanningr enumerationfand fingerprinting	
+		[enum4linux ip_address]
+	
+	Sparta
+		Runs all of the tools for you
+		Like a portal for Scanning and enumeration along with others.
+	
+	wpscan
+		wordpress vulnerability scanner
+		Can use for enumeration 
+			verision
+			users
+			plugins
+			themes
+		[wpscan --url ip_address/wordpress --enumerate u --enumerate t --enumerate p] u=users; t=themes p=plugins.
+	
+	Directory
+		Web servers may or may not expose their directories.
+		Kali has several tools for enumerating directories.
+			wfuzz
+			dirbuster
+			
+	Web App Technology
+		Have to determine what is running on the web servers to test it.
+		Whatweb
+			installed by default in kali
+			1700 plugins
+			supports different levels
+			-1
+				passive(defult)
+			-2
+				Polite
+			-3
+				Impolite-guess URL when plugin matches(smart, guess a few urls)
+			-4
+				Aggressive -guess URL for every plugin (guess a lot of urls like)
+			[whatweb domain_name ]
+	
 		
-		Services and client software
+	SMB OS Discovery
+		Nmap has scripts
+			[Nmap --script smb OS-discovery.nse --script-args=unsafe=1 -p 445 ip_address]
+	
+	SNMP
+		It is a gift because its a db full of information and we can extract data from a single query. works on UDP. 
+			[Nmap -sU -p 161 ip_address]
+			[snmpwalk -Os -c public -v 1 ip_address]
+			check Nmap scripts for snmp 
+			[/share/Nmap/script$ ls | snmp]
+	
+	
+	Manual Banner Grabbing
+		Connect to the port and investigate the response.
+			telnet
+			netcat
+		check the version of the service running and exploit available or previous exploit.
+		[nc -vn ip_address port_number]
 		
-		Application and vendor used
-			Versions and revisions
-			Service packs and patching
-			Add-on modules
+		Dimtry
+			We can grab banner
+			[01]
+			[dmitry -winsepo ip_address]
+			[dmitry -pb ip_address] (email)
 		
-		Defenses
-			Firewall
-				Vendor
-				Inbound and outbound ports allowed
-			IDS used *what the - Wrginsation for detecting vulnerability.
-			
+		Python
+		[	import scoket
+			bangrab = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+			bangrab.connect(("ip_address",port_number))
+			bangrab.recv(4096)
+			bangrab.close()
+		]
+		
+	Targets
+		TCP 43 
+			DNS zone transfer
+		UDP 137 
+			NetBIOS Name Service
+				16th byte represents data that can identify the type of machine 1C
+					A domain controller and can be exploited
+		RCP 139 
+			NetBIOS session service(SMB over NetBIOS)
+		UDP 161 
+			Simple Network Management Protocol (SNMP)
+		TCP/UDP 389 
+			Lightweight Direct3ory Acess protocol (LDAP)
+		RCP 445 
+			SMB over TCP/IP
+		TCP/UDP 3268 
+			Global catalog service
+		
+	
+				
+	Identify Vulnerablities
+		Manual
+		Tools
+	
+	Exploit
+		validation of the vulnerability
+		Manual and tools
+	
+
+Services and client software
+
+Application and vendor used
+	Versions and revisions
+	Service packs and patching
+	Add-on modules
+
+Defenses
+	Firewall
+		Vendor
+		Inbound and outbound ports allowed
+	IDS used *what the - Wrcanningonenumerationiandvfingerprinting	
 **	IDENTIFY VULNERABILITY
 		Goal 
 			Discover the best or most likely way to compromise victims.
 			Accurate enumeration makes this easier
-			Discuss Vulnerability scanning
+			Discuss Vulnerability Scanning
 				Identify the attack surface
 				Determine the risk
 				Asses the severity of the findings 
@@ -750,12 +734,11 @@
 					Usually involves setting scan parameters
 					Set the network protocols and ports to test
 					Identify the methods of host discovery (If ICMP is blocked than we have to move with TCP host discovery and than we make the policy)
-					Create a policy for the actual environment
-					Most scanners have templatese that assist
+					Create canningy enumerationuandefingerprinting		Most scanners have templatese that assist
 					Review configuration of scanners
 					Scan Templates
 				Nessus
-				Containis a large number of templates for differrent scanning situations
+				Containis a large number of templates for differrent Scanning situations
 				Dependent on the license that you are registered with.
 					Home
 						Limited templates
@@ -872,13 +855,12 @@
 							BID
 						Review the information and compare to your scanner data.
 						BugtraqID
-							Prioritise according to RCE or DoS
-							Can show exploits as well
+							Prioritise acanningg enumerationoand	fingerprintingexploits as well
 						
 					Scan Analysis at the Network Level
 						Before you scan a production network	
 							scan a test machine
-						Evaluate the scanning activity at the network level
+						Evaluate the Scanning activity at the network level
 							Use a protocol analyzer
 						Tools
 							TCPdump
@@ -908,13 +890,12 @@
 				Website vulnerability check
 					nvd.nist.gov
 					cvedetails.com
-					securityfocus.com (mantains the bugtrack ID)
-					(zerodayinitiative.com)(Disclosed without patch)
+					securityfocus.com (mantains the bugtrack canning		enumerationtandifingerprintingsed without patch)
 
 					
 					
 				Tools
-					Tools take time like days for scanning
+					Tools take time like days for Scanning
 					OpenVAS -kali
 					WebGoat like a beebox by OWASP
 					Vega -kali
@@ -1641,13 +1622,12 @@
 				and use filter [TCP.flags.syn ==1 and TCP.flags.ack == 1]
 				
 			
-			iptables -A INPUT -J REJECT --reject-with-icmp-host-prohibited
-			
+			iptables -A INPUT -J REJECcanningecenumeration-andtfingerprinting	
 			CISCO router
 				apt get install dynagin
 				get the cisco ios
 		
-		Source port scanning
+		Source port Scanning
 			Nmap -sS ip_address -Pn 
 			Active ftp
 				20
@@ -1752,14 +1732,12 @@
 			 manipulating the plc means we are manipulating the control
 			set UNIT_NUMBER 8
 			set RHOSTS ip_address
-			we can change the values
-			set DATA_ADDRESS 0
-			we can turn on off and many things
+			we can changcanningalenumerationDand_fingerprintinge can turn on off and many things
 			set ACTION READ_COILS
 			
 Practice Ranges
 
-	Practice scanning
+	Practice Scanning
 	Scanning, enumeration and finding vulnerabilities
 	
 			 
