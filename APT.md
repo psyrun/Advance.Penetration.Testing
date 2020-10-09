@@ -39,12 +39,12 @@
 ### 3.7 [ Defense System ](#3.7)
 #
 # 4. [  Identify vulnerability on network ](#4.0)
-### 4.1 [ Goal ](#3.1)
-### 4.2 [  Network Vulnerability Scanning ](#3.2)
-### 4.3 [  Scanner Configuration ](#3.3)
-### 4.4 [ Scanning Tactics and Tools ](#3.4)
-### 4.5 [ Scan Analysis at the Local Network Level ](#3.5)
-### 4.6 [ Websites for vulnerability check ](#3.6)
+### 4.1 [ Goal ](#4.1)
+### 4.2 [  Network Vulnerability Scanning ](#4.2)
+### 4.3 [  Scanner Configuration ](#4.3)
+### 4.4 [ Scanning Tactics and Tools ](#4.4)
+### 4.5 [ Scan Analysis at the Local Network Level ](#4.5)
+### 4.6 [ Websites for vulnerability check ](#4.6)
 #
 # <a name="1"></a>1. vulnerability 
 ## <a name="0"></a>Brief discussion on " What is Vulnerability ?"
