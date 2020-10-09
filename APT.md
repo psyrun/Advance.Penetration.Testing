@@ -98,17 +98,23 @@
 	* Nessus.
 	* Rapid 7's NeXpose.
 
-## <a name="1.1=6"></a>1.6 Tasks for vulnerability scanners
+## <a name="1.6"></a>1.6 Tasks for vulnerability scanners
 
-* Auditing of new systems.
-	* Evaluate systems before they are brought online.
-	* Validate compliance with securitycanning.
-enumeration andufingerprinting.
-	* To detect configuration changes that create new vcanningilenumerationuandifingerprinting first learn of a vulnerability from scanner alerts.
+*  Auditing of new systems
+	* Evaluate systems before they are brought online
+* Validate compliance with security policy
+* Discovery of unknown systems 
+	* To detect configuration changes that create new vulnerabilities
+* Educational
+	* Might first learn of a vulnerability from scanner alerts.
 
-## <a name="1.7"></a>1.7 Network Vulncanningtyenumerationeanddfingerprintingn methods used by network vulnerability scancanning Senumeration andefingerprintingervices and enumeration.
-* Each technique introduces increasing risk to end systems.
-	* Port Scanning should not crash a system.
+## <a name="1.7"></a>1.7 Network Vulnerability scanning methods.
+* Three main methods used by network vulnerability scanners
+	* Port scanning 
+	* Live systems
+	* Services and enumeration
+	* Each technique introduces increasing risk to end systems
+		*Port scanning should not crash a system
 
 ## <a name="1.8"></a>1.8 Port Scanning
 * Port Scanning determines which ports are listening on a targets.
