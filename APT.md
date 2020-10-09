@@ -302,12 +302,12 @@
 	* The deliverable report.
 #	
 # <a name="2.0"></a>2. Recon, footprinting  and information gathering
-## # <a name="2.1"></a>Goal
+## <a name="2.1"></a>2.1 Goal
 * Discover the technical environment of the victim.
 * Gather useful non or semi technical background information to be used later to refine attacks
 * Published and open information
 
-## <a name="2.1"></a>2.1 Information gathering
+## <a name="2.2"></a>2.2 Information gathering
 * Assets
 * Locations/networks
 * Services
@@ -318,7 +318,7 @@
 	* Internal, External, DMZ
 	* DNS-StuffMail servers
 	
-## <a name="2.2"></a>2.2 Target Discover
+## <a name="2.3"></a>2.3 Target Discover
 * Steps taken to uncover the target information
 	* Gather initial target information
 	* Locate the network IP range
@@ -338,16 +338,17 @@
 	* Regitery contact
 	* nslookup
 
-	`$nslookup`
+	* `$nslookup`
 	
-	`server 8.8.8.8`  Google ip_address
+	* `server 8.8.8.8`  Google ip_address
 
-	`set type=any` ==> Give me all the detail of the entered domain that we entered.
-	[domain_name]
-	Than for the next level use the server ip address you got from the information.
-	DNS information
-	Five types of queries
-	Registrar query
+	* `set type=any` Give me all the detail of the entered domain that we entered.
+	
+	* `domain_name` Than for the next level use the server ip address you got from the information.
+	
+	* DNS information
+	* Five types of queries
+	* Registrar query
 		Gives information on potential domain matching the target.
 	Organizational query
 		Searches a specific registrar to obtain all instances of the targets name, showing many different company-associated domains.
