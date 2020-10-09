@@ -1,144 +1,159 @@
-#vulnerablilty
+# Contents
+# 1. [Vulnerability](#1).
+## 1.1 [What is vulnerability](#1.1)
+## 1.1 [Vulnerability scanner](#1.2)
+## 1.1 [What is vulnerability](#1.3)
+## 1.1 [What is vulnerability](#1.4)
+## 1.1 [What is vulnerability](#1.5)
+## 1.1 [What is vulnerability](#1.6)
+## 1.1 [What is vulnerability](#1.7)
+## 1.1 [What is vulnerability](#1.8)
+## 1.1 [What is vulnerability](#1.9)
 
-which volates the product
-attackers breaking into syste
-to check system
-all system have vulnerablilty but not all have exploit
 
-## vulnerablilty scanner
 
-check ports version patch level
-generate reports 
-manually
-scanner tool
-scanner automate the process
-reduces the time needed to compile lists of vulnerable system
+# <a name="1"></a>1. Vulnerablilty 
+
+## <a name="1.1"></a>What is Vulnerability
+- Which volates the product
+- Attackers breaking into syste
+- To check system
+- All system have vulnerablilty but not all have exploit
+
+## <a name="1.2"></a>Vulnerablilty scanner
+
+- Check ports version patch level
+- Generate reports 
+- Manual Scannnig
+- Scanner tool
+- Scanner automate the process
+- Reduces the time needed to compile lists of vulnerable system
 do not replace trained security people.
 
 
-## vulnerablilty assesment
-running a vulnerablilty scanner manually
-compiling reports about vulnerablilty system
+## <a name="1.3"></a> Vulnerablilty assesment
+- Running a vulnerablilty scanner manually
+- Compiling reports about vulnerablilty system
 in pentesting pov which vulnerablilty are on which sustem
-what steps to mitigate organisation
+- What steps to mitigate organisation
 which vuln. are likely to present risk to organisation
 
-##challenge 
-vuln scanner detect and priortize vulnerablilty
-suggest solution for known vulnerablilty
-perioritze vulnerablilty based on their severity
-vulnerablilty scanner do not know your network or system
-their output needs to be evaluated by real human
-Assessing vulnerablilty require accurate knowledge of three area
-The nature of a vulnerablilty or weakness
-the real threats that can exploit or are exploiting the vulnerability
-the consequences of a successful exploit on your organization
+## <a name="1.3"></a> Challenge 
+- Vuln scanner detect and priortize vulnerablilty
+- Suggest solution for known vulnerablilty
+- Perioritze vulnerablilty based on their severity
+- Vulnerablilty scanner do not know your network or system
+- Their output needs to be evaluated by real human
+- Assessing vulnerablilty require accurate knowledge of three area
+- The nature of a vulnerablilty or weakness
+- The real threats that can exploit or are exploiting the vulnerability
+- The consequences of a successful exploit on your organization
 
-## penetration testing
-explore the possibilty of exploits
-evaluate the effectiveness of security controls
-penetration testing uses a wide range of techniques
-acquire targets
-identify available services and topology
-enumerate user accounts, network shares, application versions
-Discover vulnerability that can lead to exploit
-run exploit
+## <a name="1.3"></a> penetration testing
+- Explore the possibilty of exploits
+- Evaluate the effectiveness of security controls
+- Penetration testing uses a wide range of techniques
+- Acquire targets
+- Identify available services and topology
+- Enumerate user accounts, network shares, application versions
+- Discover vulnerability that can lead to exploit
+- Run exploit
 
-## host scanner 
-host scanner run locally
-sysytm scanner
-inside os
-can detect vulnerability and generate regular reports
-agents can be istalled and generate regular reports
+## <a name="1.4"></a> host scanner 
+- Host scanner run locally
+- Sysytm scanner
+- Inside os
+- Can detect vulnerability and generate regular reports
+- Agents can be istalled and generate regular reports
 
-## Network scanner
+## <a name="1.5"></a>Network scanner
 
-### Network scanners probe systems remotely
-looking for vulnerability that can be exploited remotely
-mimics the access available to an external attackers
-#### many network scanners are standalone products
-a single user conducts scans from a single gui
-beyond trust retina 
-quialys
-### some network scanner are deployed in a client/server model
-client used to configure scans server conducts scans
-Nessus
-Rapid 7's NeXpose
+* Network scanners probe systems remotely
+	* Looking for vulnerability that can be exploited remotely
+	* Mimics the access available to an external attackers
+* Many network scanners are standalone products
+	* A single user conducts scans from a single gui
+	* Beyond trust retina 
+	* Quialys
+* Some network scanner are deployed in a client/server model
+	* Client used to configure scans server conducts scans
+	* Nessus
+	* Rapid 7's NeXpose
 
 ## Taks for vulnerability scanners
 
-#### Auditing of new systems
-evaluate systems before they are brougt online
-validate compliance with security policy
-#### Discovery of unkown systems 
-to detect configuration changes that create new vulnerabilities
-### Educational
-Might first learn of a vulnerablity from scanner alets
+* Auditing of new systems
+	* Evaluate systems before they are brougt online
+	* Validate compliance with security policy
+* Discovery of unkown systems 
+	* To detect configuration changes that create new vulnerabilities
+* Educational
+	* Might first learn of a vulnerablity from scanner alets
 
 ## Network Vulnerability scanning methods
 
-### Three main methods used by network vulnerability scanners
-port scanning 
-live systems
-suervices and enumeration
-#### Each technique introduces increasing risk to end systems
-port scanning shouldnt crash a system
+* Three main methods used by network vulnerability scanners
+	* Port scanning 
+	* Live systems
+	* Survices and enumeration
+* Each technique introduces increasing risk to end systems
+	* Port scanning shouldnt crash a system
 
 ## Port scanning
-### port scanning determines which ports are listening on a targets
-many network services run on established well-known ports
-ftp 21
-telnet 23
-smtp 25
-dns 53 udp/tcp
-http 80
-### this intelligence is critical to an attacker
-helps indentify the applications in use
-narrows the serach for exploitable vulnerabilities
-### TCP and UDP both include the concept of ports
-however different techniques are used to scan each protocol
+* Port scanning determines which ports are listening on a targets
+	* Many network services run on established well-known ports
+	* FTP 21
+	* TELNET 23
+	* SMTP 25
+	* DNS 53 udp/tcp
+	* Http 80
+## this intelligence is critical to an attacker
+* Helps indentify the applications in use
+* Narrows the serach for exploitable vulnerabilities
+* TCP and UDP both include the concept of ports
+	* However different techniques are used to scan each protocol
 
 ## UDP Port Scans 
 
-### UDP scans rely on negative feedback
-packet with no payload is directed to a target ports
-if port is open no reply is received
-if port is closed target host sends ICMP Port Unreachable
+* UDP scans rely on negative feedback
+	* Packet with no payload is directed to a target ports
+	* If port is open no reply is received
+	* If port is closed target host sends ICMP Port Unreachable
 
-DNS query on 53 receive repy 
-type 3 code 3 port unreachable because port is unreachable
+* DNS query on 53 receive repy 
+* Type 3 code 3 port unreachable because port is unreachable
 
 ## TCP port scans
-### Most TCP scans initiate and observe the tcp three way handshake
-target port is sent a packet with the SYN flag set
-### RFC 793 specifies that every TCP host must respond
-whether port is open or closed
-getting no reply from the target is an exceptional condition
-### If port is closed target responds with RST/ACK
-indicates there is no software listening at that port
-### If no reply is received to a TCP SYN
-Something between scanner and target is dropping packets
-Traffic blocked by firewall systme, router, or system software
+* Most TCP scans initiate and observe the tcp three way handshake
+	* Target port is sent a packet with the SYN flag set
+* RFC 793 specifies that every TCP host must respond
+	* Whether port is open or closed
+	* Getting no reply from the target is an exceptional condition
+* If port is closed target responds with RST/ACK
+* Indicates there is no software listening at that port
+* If no reply is received to a TCP SYN
+	* Something between scanner and target is dropping packets
+	* Traffic blocked by firewall systme, router, or system software
 
 ## Stealth scans
-### stealth scans are a family of techniques that do one of the following
-pass through firewall filtering rules
-are not logged by the tartget
-attempt to disguise probes as normal network traffic
-### Most stealth scans probe TCP ports
-by sending packets with specific combination of TCP flags
-	SYN/ACK. URG/PSH/FIN.  FIN  . NULL(no flag)
-### RFC 793 species how targets should respond to these probes
-open port remain silent
-closed ports send RST or RST/ACK
-### Not every TCP/IP stack obeys the RFC
-microsoft for example
-limits the usefulness of stealth scans
+* Stealth scans are a family of techniques that do one of the following
+* Pass through firewall filtering rules
+* Are not logged by the tartget
+* Attempt to disguise probes as normal network traffic
+* Most stealth scans probe TCP ports
+	* By sending packets with specific combination of TCP flags
+	* SYN/ACK. URG/PSH/FIN.  FIN  . NULL(no flag)
+* RFC 793 species how targets should respond to these probes
+	* Open port remain silent
+	* Closed ports send RST or RST/ACK
+* Not every TCP/IP stack obeys the RFC
+	* Microsoft for example
+	* Limits the usefulness of stealth scans
 
 ## Stack fingerprinting
 
-### Identify the targets os
-by detecting subtle differences in TCP/IP stack implementation
+* Identify the targets os
+	* by detecting subtle differences in TCP/IP stack implementation
 
 ### Usually requires an open and closed port
 specific probes are sent and replies are matched to a database
