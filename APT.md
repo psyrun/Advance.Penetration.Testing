@@ -1,8 +1,8 @@
 # Contents
 # 1. [ Vulnerability ](#1).
-### 1.1 [ What is vulnerability](#1.1)
-### 1.1 [ Vulnerability Assessment](#1.1)
-### 1.2 [ Challenge of APT](#1.2)
+###  [ Brief discussion on "What is vulnerability ?" ](#0)
+### 1.1 [ Vulnerability Assessment ](#1.1)
+### 1.2 [ Challenge of APT ](#1.2)
 ### 1.3 [ Penetration testing ](#1.3)
 ### 1.4 [ Host scanner ](#1.4)
 ### 1.5 [ Network scanner ](#1.5)
@@ -39,19 +39,11 @@
 ### 3.7 [ Defense System ](#3.7)
 #
 # <a name="1"></a>1. vulnerability 
-## <a name="1.1"></a>1.1 What is Vulnerability
+## <a name="0"></a>Brief discussion on " What is Vulnerability ?"
 - Which violates the product.
 - Attackers breaking into system.
 - To check system.
 - All system have vulnerability but not all have exploit.
-* Vulnerability scanner
-	- Check ports version patch level.
-	- Generate reports.
-	- Manual Scanning.
-	- Scanner tool.
-	- Scanner automate the process.
-	- Reduces the time needed to compile lists of vulnerable system.
-	- Do not replace trained security people.
 
 
 ## <a name="1.1"></a>1.1 vulnerability assessment
@@ -104,7 +96,14 @@
 	* Rapid 7's NeXpose.
 
 ## <a name="1.6"></a>1.6 Tasks for vulnerability scanners
-
+* Vulnerability scanner
+	- Check ports version patch level.
+	- Generate reports.
+	- Manual Scanning.
+	- Scanner tool.
+	- Scanner automate the process.
+	- Reduces the time needed to compile lists of vulnerable system.
+	- Do not replace trained security people.
 *  Auditing of new systems
 	* Evaluate systems before they are brought online
 * Validate compliance with security policy
