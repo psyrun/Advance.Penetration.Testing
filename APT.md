@@ -1,290 +1,304 @@
 # Contents
 # 1. [Vulnerability](#1).
-## 1.1 [What is vulnerability](#1.1)
-## 1.1 [Vulnerability scanner](#1.2)
-## 1.1 [What is vulnerability](#1.3)
-## 1.1 [What is vulnerability](#1.4)
-## 1.1 [What is vulnerability](#1.5)
-## 1.1 [What is vulnerability](#1.6)
-## 1.1 [What is vulnerability](#1.7)
-## 1.1 [What is vulnerability](#1.8)
-## 1.1 [What is vulnerability](#1.9)
+### 0.0 [What is vulnerability](#0.0)
+### 1.1 [Vulnerability Assessment](#1.1)
+### 1.2 [Challenge of APT](#1.2)
+### 1.3 [Penetration Testing](#1.3)
+### 1.4 [ Host scanner ](#1.4)
+### 1.5 [ Network scanner ](#1.5)
+### 1.6 [ Tasks for vulnerability scanners ](#1.6)
+### 1.7 [ Network Vulnerability scanning methods ](#1.7)
+### 1.8 [ Port scanning ](#1.8)
+### 1.9 [ Critical intelligence ](#1.9)
+### 1.10 [ UDP Port Scans ](#1.10)
+### 1.11 [ TCP port scans](#1.11)
+### 1.12 [Stealth scans ](#1.12)
+### 1.13 [  Stack fingerprinting ](#1.13)
+### 1.14 [ Tool  ](#1.14)
+### 1.15 [Enumeration ](#1.15)
+### 1.16 [ Exploitation ](#1.16)
+### 1.17 [ ](#1.17)
+### 1.18 [ ](#1.18)
+### 1.19 [ ](#1.19)
+### 1.20 [ ](#1.20)
+### 1.21 [ ](#1.21)
 
 
 
-# <a name="1"></a>1. Vulnerablilty 
+# <a name="1"></a>1. vulnerability 
 
-## <a name="1.1"></a>What is Vulnerability
-- Which volates the product
-- Attackers breaking into syste
-- To check system
-- All system have vulnerablilty but not all have exploit
+## <a name="0.0"></a>0.0 What is Vulnerability
+- Which violates the product.
+- Attackers breaking into system.
+- To check system.
+- All system have vulnerability but not all have exploit.
 
-## <a name="1.2"></a>Vulnerablilty scanner
+## <a name="1.0"></a>1.0 Vulnerability scanner
 
-- Check ports version patch level
-- Generate reports 
-- Manual Scannnig
-- Scanner tool
-- Scanner automate the process
-- Reduces the time needed to compile lists of vulnerable system
-do not replace trained security people.
+- Check ports version patch level.
+- Generate reports.
+- Manual Scanning.
+- Scanner tool.
+- Scanner automate the process.
+- Reduces the time needed to compile lists of vulnerable system.
+- Do not replace trained security people.
 
 
-## <a name="1.3"></a> Vulnerablilty assesment
-- Running a vulnerablilty scanner manually
-- Compiling reports about vulnerablilty system
-in pentesting pov which vulnerablilty are on which sustem
-- What steps to mitigate organisation
-which vuln. are likely to present risk to organisation
+## <a name="1.1"></a>1.1 vulnerability assessment
+- Running a vulnerability scanner manually.
+- Compiling reports about vulnerability system.
+- In penetration poc which vulnerability are on which system.
+- What steps to mitigate organization.
+- Which vulnerability. are likely to present risk to organization.
 
-## <a name="1.3"></a> Challenge 
-- Vuln scanner detect and priortize vulnerablilty
-- Suggest solution for known vulnerablilty
-- Perioritze vulnerablilty based on their severity
-- Vulnerablilty scanner do not know your network or system
-- Their output needs to be evaluated by real human
-- Assessing vulnerablilty require accurate knowledge of three area
-- The nature of a vulnerablilty or weakness
-- The real threats that can exploit or are exploiting the vulnerability
-- The consequences of a successful exploit on your organization
+## <a name="1.2"></a>1.0 Challenge of APT
+- Vulnerability scanner detect and prioritize vulnerability.
+- Suggest solution for known vulnerability.
+- Prioritize vulnerability based on their severity.
+- vulnerability scanner do not know your network or system.
+- Their output needs to be evaluated by real human.
+- Assessing vulnerability require accurate knowledge of three area.
+- The nature of a vulnerability or weakness.
+- The real threats that can exploit or are exploiting the vulnerability.
+- The consequences of a successful exploit on your organization.
 
-## <a name="1.3"></a> penetration testing
-- Explore the possibilty of exploits
-- Evaluate the effectiveness of security controls
-- Penetration testing uses a wide range of techniques
-- Acquire targets
-- Identify available services and topology
-- Enumerate user accounts, network shares, application versions
-- Discover vulnerability that can lead to exploit
-- Run exploit
+## <a name="1.3"></a>1.3 Penetration testing
+- Explore the possibility of exploits.
+- Evaluate the effectiveness of security controls.
+- Penetration testing uses a wide range of techniques.
+- Acquire targets.
+- Identify available services and topology.
+- Enumerate user accounts, network shares, application versions.
+- Discover vulnerability that can lead to exploit.
+- Run exploit.
 
-## <a name="1.4"></a> host scanner 
-- Host scanner run locally
-- Sysytm scanner
-- Inside os
-- Can detect vulnerability and generate regular reports
-- Agents can be istalled and generate regular reports
+## <a name="1.4"></a>1.4 Host scanner 
+- Host scanner run locally.
+- System scanner.
+- Inside OS.
+- Can detect vulnerability and generate regular reports.
+- Agents can be installed and generate regular reports.
 
-## <a name="1.5"></a>Network scanner
+## <a name="1.5"></a>1.5 Network scanner
 
-* Network scanners probe systems remotely
-	* Looking for vulnerability that can be exploited remotely
-	* Mimics the access available to an external attackers
-* Many network scanners are standalone products
-	* A single user conducts scans from a single gui
-	* Beyond trust retina 
-	* Quialys
-* Some network scanner are deployed in a client/server model
-	* Client used to configure scans server conducts scans
-	* Nessus
-	* Rapid 7's NeXpose
+* Network scanners probe systems remotely.
+	* Looking for vulnerability that can be exploited remotely.
+	* Mimics the access available to an external attackers.
+* Many network scanners are standalone products.
+	* A single user conducts scans from a single GUI.
+	* Beyond trust retina.
+	* Quialys.
+* Some network scanner are deployed in a client/server model.
+	* Client used to configure scans server conducts scans.
+	* Nessus.
+	* Rapid 7's NeXpose.
 
-## Taks for vulnerability scanners
+## <a name="1.1=6"></a>1.6 Tasks for vulnerability scanners
 
-* Auditing of new systems
-	* Evaluate systems before they are brougt online
-	* Validate compliance with security policy
-* Discovery of unkown systems 
-	* To detect configuration changes that create new vulnerabilities
-* Educational
-	* Might first learn of a vulnerablity from scanner alets
+* Auditing of new systems.
+	* Evaluate systems before they are brought online.
+	* Validate compliance with security policy.
+* Discovery of unknown systems.
+	* To detect configuration changes that create new vulnerabilities.
+* Educational.
+	* Might first learn of a vulnerability from scanner alerts.
 
-## Network Vulnerability scanning methods
+## <a name="1.7"></a>1.7 Network Vulnerability scanning methods
 
-* Three main methods used by network vulnerability scanners
-	* Port scanning 
-	* Live systems
-	* Survices and enumeration
-* Each technique introduces increasing risk to end systems
-	* Port scanning shouldnt crash a system
+* Three main methods used by network vulnerability scanners.
+	* Port scanning.
+	* Live systems.
+	* Services and enumeration.
+* Each technique introduces increasing risk to end systems.
+	* Port scanning should not crash a system.
 
-## Port scanning
-* Port scanning determines which ports are listening on a targets
-	* Many network services run on established well-known ports
-	* FTP 21
-	* TELNET 23
-	* SMTP 25
-	* DNS 53 udp/tcp
-	* Http 80
-## this intelligence is critical to an attacker
-* Helps indentify the applications in use
-* Narrows the serach for exploitable vulnerabilities
-* TCP and UDP both include the concept of ports
-	* However different techniques are used to scan each protocol
+## <a name="1.8"></a>1.8 Port scanning
+* Port scanning determines which ports are listening on a targets.
+	* Many network services run on established well-known ports.
+	* FTP 21.
+	* TELNET 23.
+	* SMTP 25.
+	* DNS 53 UDP/TCP.
+	* Http 80.
+## <a name="1.9"></a>1.9 Critical intelligence 
+* Helps identify the applications in use.
+* Narrows the search for exploitable vulnerabilities.
+* TCP and UDP both include the concept of ports.
+	* However different techniques are used to scan each protocol.
 
-## UDP Port Scans 
+## <a name="1.10"></a>1.10 UDP Port Scans 
 
-* UDP scans rely on negative feedback
-	* Packet with no payload is directed to a target ports
-	* If port is open no reply is received
-	* If port is closed target host sends ICMP Port Unreachable
+* UDP scans rely on negative feedback.
+	* Packet with no payload is directed to a target ports.
+	* If port is open no reply is received.
+	* If port is closed target host sends ICMP Port Unreachable.
 
-* DNS query on 53 receive repy 
-* Type 3 code 3 port unreachable because port is unreachable
+* DNS query on 53 receive reply.
+* Type 3 code 3 port unreachable because port is unreachable.
 
-## TCP port scans
-* Most TCP scans initiate and observe the tcp three way handshake
-	* Target port is sent a packet with the SYN flag set
-* RFC 793 specifies that every TCP host must respond
-	* Whether port is open or closed
-	* Getting no reply from the target is an exceptional condition
-* If port is closed target responds with RST/ACK
-* Indicates there is no software listening at that port
-* If no reply is received to a TCP SYN
-	* Something between scanner and target is dropping packets
-	* Traffic blocked by firewall systme, router, or system software
+## <a name="1.11"></a>1.11 TCP port scans
+* Most TCP scans initiate and observe the TCP three way handshake.
+	* Target port is sent a packet with the SYN flag set.
+* RFC 793 specifies that every TCP host must respond.
+	* Whether port is open or closed.
+	* Getting no reply from the target is an exceptional condition.
+* If port is closed target responds with RST/ACK.
+* Indicates there is no software listening at that port.
+* If no reply is received to a TCP SYN.
+	* Something between scanner and target is dropping packets.
+	* Traffic blocked by firewall system, router, or system software.
 
-## Stealth scans
-* Stealth scans are a family of techniques that do one of the following
-* Pass through firewall filtering rules
-* Are not logged by the tartget
-* Attempt to disguise probes as normal network traffic
-* Most stealth scans probe TCP ports
-	* By sending packets with specific combination of TCP flags
-	* SYN/ACK. URG/PSH/FIN.  FIN  . NULL(no flag)
-* RFC 793 species how targets should respond to these probes
-	* Open port remain silent
-	* Closed ports send RST or RST/ACK
-* Not every TCP/IP stack obeys the RFC
-	* Microsoft for example
-	* Limits the usefulness of stealth scans
+## <a name="1.12"></a>1.12 Stealth scans
+* Stealth scans are a family of techniques that do one of the following:
+	* Pass through firewall filtering rules.
+	* Are not logged by the target.
+	* Attempt to disguise probes as normal network traffic.
+	* Most stealth scans probe TCP ports.
+		* By sending packets with specific combination of TCP flags.
+		* SYN/ACK. URG/PSH/FIN.  FIN  . NULL(no flag).
+	* RFC 793 species how targets should respond to these probes.
+		* Open port remain silent.
+		* Closed ports send RST or RST/ACK.
+	* Not every TCP/IP stack obeys the RFC.
+		* Microsoft for example.
+		* Limits the usefulness of stealth scans.
 
-## Stack fingerprinting
+## <a name="1.13"></a>1.13 Stack fingerprinting
 
-* Identify the targets os
-	* by detecting subtle differences in TCP/IP stack implementation
+* Identify the targets OS.
+	* By detecting subtle differences in TCP/IP stack implementation.
 
-### Usually requires an open and closed port
-specific probes are sent and replies are matched to a database
+* Usually requires an open and closed port.
+	* Specific probes are sent and replies are matched to a database.
 
-### Stacks differ in how they respond to
-Unusual flag cominations
-	SYN/FIN, No flaga, all flags
-RST packets sent to open and closed ports
-	Some stacks respond in both situations
-	Other stacks do not
+* Stacks differ in how they respond to:
+	* Unusual flag combinations.
+	* SYN/FIN, No flags, all flags.
+	* RST packets sent to open and closed ports.
+		* Some stacks respond in both situations.
+		* Other stacks do not.
 	
-## Tool (nmap)
-scan includes
-	ping sweeps
-	ports scans
-	stealth scans
-	includes stack fingerprinting capability
-*	more and more on every update and check for scripts 
+## <a name="1.14"></a>1.14 Tool 
+* Nmap
+	* Scan includes:
+		* Ping sweeps.
+		* Ports scans.
+		* Stealth scans.
+		* Includes stack fingerprinting capability.
+	* More and more on every update and check for scripts.
 
-## Emeration
+## <a name="1.15"></a>1.15 Enumeration 
 
-### Determining the configuration of individual targets
-user accounts, network shares, OS services
-Techniques are OS specific
+* Determining the configuration of individual targets.
+	* User accounts, network shares, OS services.
+	* Techniques are OS specific.
 
-### UNIX systems are often enumerated using
-	RPC on port 111
-		Determine which RPC programs are available
-	Sendmail on port 25
-		Detemine user account using VRFY command
+* UNIX systems are often enumerated using:
+	* RPC on port 111.
+		* Determine which RPC programs are available.
+	* Send mail on port 25.
+		* Determine user account using VRFY command.
 
-### Windows systems are commonly enumerated using SMB
-	running under NetBIOS over TCP on port 139
-	On newer Windows System, running natively on TCP port 445
+* Windows systems are commonly enumerated using SMB.
+	* Running under NetBIOS over TCP on port 139.
+	* On newer Windows System, running natively on TCP port 445.
 
-### Windows Null sessions
-Windows systems permit smb null sessions by default
-A blank user name and password are used as credentials
-Null sessions can be used to enumerate critical information
-By connecting to the built-in named pipe share, IPC$
+* Windows Null sessions.
+	* Windows systems permit smb null sessions by default.
+	* A blank user name and password are used as credentials.
+	* Null sessions can be used to enumerate critical information.
+	* By connecting to the built-in named pipe share, IPC$.
 
-### other
-Observing the initial text sent by a server is called banner grabbing.
-Banner often indicates what software is running
-	software name and version
-	os version
-	special features
-** SNMP can be used to enumerate router configuration
-	including router tables and access control listsusing tools like snmpwalk
-		requires the community name
-		[snmpwalk -Os -c public -v 1 target_ip]
+* Other.
+* Observing the initial text sent by a server is called banner grabbing.
+* Banner often indicates what software is running.
+	* Software name and version.
+* OS version.
+	* Special features.
 
-### Limitations of banner grabbing
-Version information may not include patch level
-	IIS doesn't output which updates have been applied
-Banner can be altered by administrator
-	This should be done on all servives that have a banner
-Sometimes there is no banner
-	Especially with UDP services
+* SNMP can be used to enumerate router configuration.
+	* Including router tables and access control lists using tools like.
+	* snmpwalk.
+	* requires the community name.
 	
-### Non intrusive probing
-Look for the vulnerability without causing demage
-	inject data that produces a known response
-	May  or may not actually exploit vulnerablilty
-Traverse directories, but dont create new files
-Send format string that reads memory
-	But do not write anything into that memory 
+	`snmpwalk -Os -c public -v 1 target_ip`
+
+* Limitations of banner grabbing.
+	* Version information may not include patch level.
+	* IIS doesn't output which updates have been applied.
+	* Banner can be altered by administrator.
+	* This should be done on all services that have a banner.
+	* Sometimes there is no banner.
+	* Especially with UDP services.
 	
-### Exploitation
-Most vulnerabilities scanner can conduct intrusive tests
-	which actually exploit the vulnerability that is being checked
-	May cause crashes and DoS
-Scanners are configured to skip these tests by default
-	Usually require the operator to OK an alert before enabling.
+* Non intrusive probing.
+	* Look for the vulnerability without causing damage.
+	* Inject data that produces a known response.
+	* May  or may not actually exploit vulnerability.
+	* Traverse directories, but don't create new files.
+	* Send format string that reads memory.
+	* But do not write anything into that memory.
 
-### Intelligent Scanning
+## <a name="1.16"></a> 1.16 Exploitation.
+* Most vulnerabilities scanner can conduct intrusive tests.
+* Which actually exploit the vulnerability that is being checked.
+* May cause crashes and DoS.
+* Scanners are configured to skip these tests by default.
+* Usually require the operator to OK an alert before enabling.
 
-First generation tools performed serial scans.
-	Tests were run one after another
-	Each test ran in its own context
-Required auditor to choose relevant tests.
-	Tools did not detect the type of server that they were scanning
-	IIS tests might be run against an Apache server
-Next-generation tools became more intelligent
-	Use results from previous tests as input to later tests.
-Examples
-	Conduct port scan and perform OS detection
-		Determines specific vulnerablity tests.
-	If vulnerability reveals information, use this in other tests.
-		If NULL session allowed, use resulting registry information.
- 
+## <a name="1.17"></a> 1.17 Intelligent Scanning.
 
+* First generation tools performed serial scans.
+* Tests were run one after another.
+* Each test ran in its own context.
+* Required auditor to choose relevant tests.
+	* Tools did not detect the type of server that they were scanning.
+	* IIS tests might be run against an Apache server.
+* Next-generation tools became more intelligent.
+* Use results from previous tests as input to later tests.
+* Examples:
+	* Conduct port scan and perform OS detection.
+	* Determines specific vulnerability tests.
+	* If vulnerability reveals information, use this in other tests.
+	* If NULL session allowed, use resulting registry information.
 
-## CREATING SECURITY TESTING PLAN
-	DEFINING GOALS IN WRITING
-		state specifically what should be achieved
-		performing a security test must have authorization
-		
-	ESTABLISHING A SCOPE OF WORK THAT FRAMES
-		Time
-		Addresses
-		Networks directly involved and transited
-		Available targets
-		
-	MARKING OFF-LIMITS AREAS
-		Some systems and network may be highly critical.
-		
-	POSTING RULES OF ENGAGEMENT
-		Chck outline policy like social engineering, DoS.
-		
-	DEFINING THE DELIVERABLE
-		whether the project involves one host and one vulnerability, or a site penetration test, results must be recorded and reported.
+## <a name="1.18"></a> 1.18 Creating security testing planning:
+*  Defining goals in writing.
+	* State specifically what should be achieved.
+	* performing a security test must have authorization.
 	
-	TESTING OUTLINES
-	* www.isecom.org/osstmm
-	NIST 800-115
-
-** Client want to know what the risk is and how to mitigate the risk.
-
-### Testing Security Methods
-War Games
-	Red team vs blue team
-Security testing 
-	Light network evaluations
-	Probing specific potential problem areas
-		host and network
-Penetration testing
-	Unannounced simulated attack
+*  Establishing scope of work that frames.
+	*	Time.
+	*	Addresses.
+	*	Networks directly involved and transited.
+	*	Available targets.
 	
+* Marking off limits.
+	* Some systems and network may be highly critical.
+	
+* Posting rules of enggagement.
+	* Check outline policy like social engineering, DoS.
+	
+* Defining the deliverable.
+	* Whether the project involves one host and one vulnerability, or a
+	Site penetration test, results must be recorded and reported.
 
-### HACKING METHODOLOGY
+* Testing outlines.
+* [NIST 800-115](www.isecom.org/osstmm)
+
+> Client want to know what the risk is and how to mitigate the risk.
+
+## <a name="1.19"></a> 1.19 Testing Security Methods.
+* War Games:
+	* Red team vs blue team.
+* Security testing: 
+	* Light network evaluations.
+	* Probing specific potential problem areas.
+		* Host and network.
+* Penetration testing:
+	* Unannounced simulated attack.
+
+# 2. HACKING METHODOLOGY
 	
 **	PLANNING
 		A logincal and tested strategy is essential to reach and compromise civrims
@@ -394,7 +408,7 @@ Penetration testing
 							windows
 								uses icmp by defalut
 							nix
-								uses udp by default
+								uses UDP by default
 					
 					Competitive intelligence gathering
 						Data gathering
@@ -433,7 +447,7 @@ Penetration testing
 			The wayback machine
 			whois
 			The victims own published information 
-			* know what the organisation user resume
+			* know what the organization user resume
 			
 
 **	SCANNING, ENUMERATION AND FINGERPRINTING
@@ -466,7 +480,7 @@ Penetration testing
 								
 				Live systems
 					We have to have targets
-						[-sP, -sn] in nmap
+						[-sP, -sn] in Nmap
 					
 				netdiscover [checks for LAN]
 					have to be on the local subnet
@@ -487,36 +501,36 @@ Penetration testing
 					[namp ip_address/range -PA80 -sn] 
 					Ports
 						What are the doors on these targets
-							Remember all 0-65535 because nmap only gives us the enumeration of 1000 ports only.
+							Remember all 0-65535 because Nmap only gives us the enumeration of 1000 ports only.
 							
-							[-sS,-sT,-sU] ==> s= scan S= stealth scan; T= connect scan; U= udp scan
+							[-sS,-sT,-sU] ==> s= scan S= stealth scan; T= connect scan; U= UDP scan
 					
 					Services
 						What is behind these doors
 							[-sV] 
 					
 
-					[nmap -sP ip_address/range] (identifies all the machines , vmware switches etc and we can eliminate the vmware machines from targets)
+					[Nmap -sP ip_address/range] (identifies all the machines , vmware switches etc and we can eliminate the vmware machines from targets)
 					->
-					[nmap -sS ip_address/range] (check all the ports)
+					[Nmap -sS ip_address/range] (check all the ports)
 					->
-					[nmap -sV ip_address] (check services running on the system)
+					[Nmap -sV ip_address] (check services running on the system)
 					->
 					[nmaap -A ip_address] (Enumerate target with all options for output to get in xml)
 					->
-					[nmap -A ip_address -oX test.xml nmap.xsl] (go to nmap directory and then use this or just move the stylesheet to the current path)
+					[Nmap -A ip_address -oX test.xml Nmap.xsl] (go to Nmap directory and then use this or just move the stylesheet to the current path)
 					->
-					[nmap -sC ip_address] 
+					[Nmap -sC ip_address] 
 					->
-					[nmap --script smb-os-discovery ip_address] (using scripting engine to enumerate smb os)
+					[Nmap --script smb OS-discovery ip_address] (using scripting engine to enumerate smb OS)
 					->
-					[nmap -O ip_address] (operating system detection there are tons of packet sent but find the alternative for this)
+					[Nmap -O ip_address] (operating system detection there are tons of packet sent but find the alternative for this)
 					
 				TCP Dump(Low level scanning)
 					
 					check its man page
 					[tcpdump -x -A port 21] default eth0 interface.
-					[tcpdump -x tcp] can find 3 way handshake 
+					[tcpdump -x TCP] can find 3 way handshake 
 					[tcpdump -dst ip_address]
 					[tcpdump -nn -A -l|grep "User-Agent:"] -> open browsesr 
 					
@@ -555,7 +569,7 @@ Penetration testing
 					
 					Example:
 						vi attack.sig {any content}
-						[hping3 -2 -p 500 ip_address -d 137 -E attack.sig] {2=udp, attackers port 500, 137 victim port -E attack.sig
+						[hping3 -2 -p 500 ip_address -d 137 -E attack.sig] {2=UDP, attackers port 500, 137 victim port -E attack.sig
 						[hping3 -2 -p 500 ip_address -d 100 -E attack.sig]  (bufferoverflow the port)
 						[hping3 --scan known ip_address -S] (Scan all the ports)
 						[hping3 --scan '1-3000' known ip_address -S] (Scan port from 1-3000)
@@ -572,13 +586,13 @@ Penetration testing
 							port 53 DNS-Stuff
 							port 80
 					Options for source port selection
-						nmap -gathering
+						Nmap -gathering
 						netcat -packet
 						metasploit -set CPORT
 							can get hte payload through the filtering device.
 			Enumeration
 				Is used to gather more in depth information about the target, such as open shares and user account information.
-				nmap [-sC, -A] for enumeration scanning
+				Nmap [-sC, -A] for enumeration scanning
 				Windows targets and Linux/Unix with Samba
 				
 				nbstat
@@ -598,7 +612,7 @@ Penetration testing
 					Like a portal for scanning and enumeration along with others.
 				
 				wpscan
-					wordpress vulnerablilty scanner
+					wordpress vulnerability scanner
 					Can use for enumeration 
 						verision
 						users
@@ -631,14 +645,14 @@ Penetration testing
 					
 				SMB OS Discovery
 					Nmap has scripts
-						[nmap --script smb-os-discovery.nse --script-args=unsafe=1 -p 445 ip_address]
+						[Nmap --script smb OS-discovery.nse --script-args=unsafe=1 -p 445 ip_address]
 				
 				SNMP
-					It is a gift because its a db full of information and we can extract data from a single query. works on udp. 
-						[nmap -sU -p 161 ip_address]
+					It is a gift because its a db full of information and we can extract data from a single query. works on UDP. 
+						[Nmap -sU -p 161 ip_address]
 						[snmpwalk -Os -c public -v 1 ip_address]
-						check nmap scripts for snmp 
-						[/share/nmap/script$ ls | snmp]
+						check Nmap scripts for snmp 
+						[/share/Nmap/script$ ls | snmp]
 				
 				
 				Manual Banner Grabbing
@@ -702,7 +716,7 @@ Penetration testing
 			Firewall
 				Vendor
 				Inbound and outbound ports allowed
-			IDS used *what the orginsation for detecting vuln.
+			IDS used *what the - Wrginsation for detecting vulnerability.
 			
 **	IDENTIFY VULNERABILITY
 		Goal 
@@ -799,7 +813,7 @@ Penetration testing
 								Protocol
 								Application
 							Investigate the listing of vulnerabilities
-							Interrogate the vulnerablilty information
+							Interrogate the vulnerability information
 						Results
 							Hosts
 							Vulnerablities
@@ -816,7 +830,7 @@ Penetration testing
 					OpenSource
 					Fork of the original Nessus project
 					Its powerful but takes more time than nessus. (same developer)							
-					OpenVAS Scan Taks
+					OpenVAS Scan Tasks
 					OpenVAS Port Configuration
 						Similar to Nessus
 						Contains plugins
@@ -840,7 +854,7 @@ Penetration testing
 							Protocol
 							Application
 						Investigate the listing of vulnerabilities
-						Interrogate the vulnerablilty information
+						Interrogate the vulnerability information
 						Evaluvate the recommended solution
 							Write your own report going through all the report
 							See if Nessus has provided an output
@@ -998,7 +1012,7 @@ Penetration testing
 					[searchsploit samba remote] (which version should work)
 					
 			Manual exploitation
-				->	nmap (gain information about target) 
+				->	Nmap (gain information about target) 
 				->	sslscan ip_address
 				-> man smbclient (for samba smbclient -L ip_address)
 				-> [searchsploit samba remote]
@@ -1181,7 +1195,7 @@ Penetration testing
 			crack passwords
 			Escalate privileges if required
 			plant backdoor - if allowed by scope 
-			conduct local assesment
+			conduct local assessment
 			
 			Disable firewall
 				Local firewall can cause challenges, so best to disable it.
@@ -1191,7 +1205,7 @@ Penetration testing
 				PS:[net stop "Windows Defender Antivirus Network Inspection Service"]
 				PS:[net stop "Windows Defender Antivirus Service"]
 				PS:[net stop "Windows Defender Security Center Service"]
-				Depending on the os and your level of access, the commands might not all work.
+				Depending on the OS and your level of access, the commands might not all work.
 			
 			killav Script
 			
@@ -1270,7 +1284,7 @@ Penetration testing
 						Collect environment variables
 							wmic environment list
 						OS/System Report HTML Formatted
-							wmic /output:c:\os.html os get /format:hform
+							wmic /output:c: OS.html OS get /format:hform
 						Turn on remote desktop remotely
 							-wmic /node:"servername" /user:"user@domain" /password: "password" RDToggle where Server Name = "server name" call SetAllowTSConnections 1
 						Get startup list
@@ -1356,7 +1370,7 @@ Penetration testing
 						Shell Limited
 							Try and spawn a bash shell
 								python -c 'import pty;pty.spawn("/bin/bash")'
-								echo os.system('/bin/bash')
+								echo OS.system('/bin/bash')
 								/bin/sh -i
 						
 						Sticky Bits
@@ -1407,9 +1421,9 @@ Penetration testing
 									powershell.exe -ExecutionPolicy Bypass -NonInteractive -File script.ps1
 			
 							Example:
-								nmap -sV ip_address (version)
+								Nmap -sV ip_address (version)
 							->	Nessus -> Basic network scan
-							->	nmap -sC ip_address
+							->	Nmap -sC ip_address
 							->	if there is a web server navigate via browser. -> use dirbuster 
 							-> 	Maintain the excel sheet
 							->	Scan with vega
@@ -1555,7 +1569,7 @@ Penetration testing
 					
 				Usage
 					Once you have set the proxy all commands can be used through it using proxychains through the port that you have setup
-						proxychains nmap -sT ip_address
+						proxychains Nmap -sT ip_address
 				
 		Explore web shells
 			Web Shells
@@ -1614,14 +1628,14 @@ Penetration testing
 						</body>
 						</html>
 
-		Scanning with nmap with nmap against defenses
-			nmap -sS ip_address
-			nmap -sS ip_address
-			nmap -sC ip_address
+		Scanning with Nmap with Nmap against defenses
+			Nmap -sS ip_address
+			Nmap -sS ip_address
+			Nmap -sC ip_address
 			
 			when their is filter applied
 				than go to wireshark
-				and use filter [tcp.flags.syn ==1 and tcp.flags.ack == 1]
+				and use filter [TCP.flags.syn ==1 and TCP.flags.ack == 1]
 				
 			
 			iptables -A INPUT -J REJECT --reject-with-icmp-host-prohibited
@@ -1631,16 +1645,16 @@ Penetration testing
 				get the cisco ios
 		
 		Source port scanning
-			nmap -sS ip_address -Pn 
+			Nmap -sS ip_address -Pn 
 			Active ftp
 				20
 			nc -p 20 ip_address port_number
-			wrieshark -> tcp.poort == 20 ->capture 
-			nmap -g 20 -sS ip_address/range (g=source port)
-			nmap -g 20 -sV ip_address (services scan)
-			nmap -sS ip_address -Pn
-			nmap -g 20 -A ip_addresss
-			check metasploit if it has the exploit sometime it dont find the option
+			wrieshark -> TCP.poort == 20 ->capture 
+			Nmap -g 20 -sS ip_address/range (g=source port)
+			Nmap -g 20 -sV ip_address (services scan)
+			Nmap -sS ip_address -Pn
+			Nmap -g 20 -A ip_addresss
+			check metasploit if it has the exploit sometime it don't find the option
 			show advanced option
 			set CPORT 20
 			set LPORT 123
@@ -1687,14 +1701,14 @@ Penetration testing
 			vi /etc/proxychains.conf 
 			search socks
 			use auxilary/socks4a
-			proxychains nmap -sT ip_address (stealth search)
+			proxychains Nmap -sT ip_address (stealth search)
 		
 		webshells
 			same as previous
 		
 		Exploiting shellshock using curl
-			nmap -sS ip_address
-			nmap -sV ip_address
+			Nmap -sS ip_address
+			Nmap -sV ip_address
 			nikto -h ip_address -c all -o nikto.results.html | grep cookies(c=cgi.bin directories)
 			web browser -> ipaddress/cgi-bin/printenv (shellshock) runnigscript using html
 			
@@ -1713,16 +1727,16 @@ Penetration testing
 			run the  ./cowroot32 in python envoirnment in victim machine
 			
 		SCADA system
-			nmap -sP ip_address/range
-			nmap -sS ip_address (to check the port)
-			nmap -sV -p 10000 ip_address (check the port what is running on that port; just see the attack surface)
-			nmap -sC ip_address
+			Nmap -sP ip_address/range
+			Nmap -sS ip_address (to check the port)
+			Nmap -sV -p 10000 ip_address (check the port what is running on that port; just see the attack surface)
+			Nmap -sC ip_address
 			check enumeration using check
 			most iot have default password
 			
 		ICS/SCADA Modbus Protocol
-			nmap -sP ip_address (ping sweep)
-			nmap -sS ip_address,second_ip
+			Nmap -sP ip_address (ping sweep)
+			Nmap -sS ip_address,second_ip
 			
 			
 			metasploit >> Search modbus
