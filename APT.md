@@ -1,6 +1,6 @@
 # Contents
 # 1. [Vulnerability](#1).
-### 0.0 [What is vulnerability](#0.0)
+### 1.0 [What is vulnerability](#1.0)
 ### 1.1 [Vulnerability Assessment](#1.1)
 ### 1.2 [Challenge of APT](#1.2)
 ### 1.3 [ Penetration testing ](#1.3)
@@ -34,7 +34,7 @@
 ### 2.6 [ ](#2.6)
 
 # <a name="1"></a>1. vulnerability 
-## <a name="0.0"></a>1.0 What is Vulnerability
+## <a name="1.0"></a>1.0 What is Vulnerability
 - Which violates the product.
 - Attackers breaking into system.
 - To check system.
@@ -470,11 +470,11 @@
 		* Any other response
 			* Some form of a device or firewall on the host.
 
-## Scanning analysis
+## <a name="3.2"></a>3.2 Scanning analysis
 * Send in TCP and get back ICMP
 	* Filtering device or software is in place. we can check packets reach to destination or not.
 
-## Scanning Methodology
+## <a name="3.4"></a>3.4 Scanning Methodology
 
 * TCP connection
 	* 3 way handshake creates a socket and establish the connection.
@@ -506,74 +506,74 @@
 		* What are the doors on these targets.
 			* Remember all 0-65535 because Nmap only gives us the * enumeration of 1000 ports only.
 
-			* [-sS,-sT,-sU] ==> s= scan S= stealth scan; T= connect scan; U= UDP scan
+			* `-sS,-sT,-sU`  s= scan S= stealth scan; T= connect scan; U= UDP scan.
 
 	* Services
 		* What is behind these doors
-			* [-sV] 
+			* `nmap -sV` 
 
 
-	[Nmap -sP ip_address/range] (identifies all the machines , vmware switches etc and we can eliminate the vmware machines from targets)
+	* `Nmap -sP ip_address/range` (identifies all the machines , vmware switches etc and we can eliminate the vmware machines from targets)
 	
-	* [Nmap -sS ip_address/range] (check all the ports)
+	* `Nmap -sS ip_address/range` (check all the ports)
 	
-	* [Nmap -sV ip_address] (check services running on the system)
+	* `Nmap -sV ip_address` (check services running on the system)
 	
-	* [nmaap -A ip_address] (Enumerate target with all options for output to get in xml)
+	* `nmaap -A ip_address` (Enumerate target with all options for output to get in xml)
 	
-	* [Nmap -A ip_address -oX test.xml Nmap.xsl] (go to Nmap directory and then use this or just move the stylesheet to the current path)
+	* `Nmap -A ip_address -oX test.xml Nmap.xsl` (go to Nmap directory and then use this or just move the stylesheet to the current path)
 	
-	* [Nmap -sC ip_address] 
+	* `Nmap -sC ip_address`
 	
-	* [Nmap --script smb OS-discovery ip_addrcanningsienumerationgandgfingerprintingte smb OS)
+	* `nmap --script smb-os-discovery ip_address` (using scripting engine to enumerate smb os)
 	
-	* [Nmap -O ip_address] (operating system detection there are tons of packet sent but find the alternative for this)
+	* `Nmap -O ip_address` (operating system detection there are tons of packet sent but find the alternative for this)
 
 * TCP Dump(Low level Scanning)
 	* check its man page
-	* [tcpdump -x -A port 21] default eth0 interface.
-	* [tcpdump -x TCP] can find 3 way handshake 
-	* [tcpdump -dst ip_address]
-	* [tcpdump -nn -A -l|grep "User-Agent:"] -> open browsesr 
+	* `tcpdump -x -A port 21` default eth0 interface.
+	* `tcpdump -x TCP` can find 3 way handshake 
+	* `tcpdump -dst ip_address`
+	* `tcpdump -nn -A -l|grep "User-Agent:"` open browsesr 
 
 * Tshark
 	* check man
 	
 * dsniff
-	* [dsniff] see only the credential on the network.
-
+	* `dsniff` see only the credential on the network.
 
 * Unicornscan
-	* checlk man
+	* check man
 	
 
-* SSL Scan (we can check the ciphers to encrypt data , we can make traffic look like specific app using these cipher or if we have a vulnerability in the cipher than can exploit it)
-	* [sslscan ip_address]
-	* [sslscan --show-client-cas ip_address]
-	* [sslscan --no-failed ip_address]
+* SSL Scan (we can check the ciphers to encrypt data , we can make traffic look like specific app using these cipher or if we have a vulnerability in the cipher than can exploit it).
+	* `sslscan ip_address`
+	* `sslscan --show-client-cas ip_address`
+	* `sslscan --no-failed ip_address`
 
 * ZMap
-	* [zmap --bandwidth=1000M --target-port=445 --max-results=10000 --output-file=results.txt ip_address]
+	* `zmap --bandwidth=1000M --target-port=445 --max-results=10000 --output-file=results.txt ip_address`
 
 * Masscan
 	* Fast scanner
 	* Designed to scan the internet
 	* similar to zmap
 	* installed by default on kali
-	* > can split the scan up and set times	
-	* [masscan ip_address/range -p 80,445]
+	* > can split the scan up and set times
+	* `masscan ip_address/range -p 80,445`
 
 * Hping (powerful and fast, Master tool for crafting packet. More you learn hping more powerful you become)
 	* quick way to identify 
-	* [hping3 ipaddress --scan 0-65535 -S | more]
+	* `hping3 ipaddress --scan 0-65535 -S | more`
 	* Example:
 		* vi attack.sig {any content}
-		* [hping3 -2 -p 500 ip_address -d 137 -E attack.sig] {2=UDP, * attackers port 500, 137 victim port -E attack.sig
-		* [hping3 -2 -p 500 ip_address -d 100 -E attack.sig]  (bufferoverflow the port)
-		* [hping3 --scan known ip_address -S] (Scan all the ports)
-		[* hping3 --scan '1-3000' known ip_addrecanning(Senumerationoand-fingerprintingng3 127.0.0.1 --listen signature --safe --icmp] (create icmp packet to send)
-		* [hping3 127.0.0.1 --icmp -d 100 --sign signature --file /etc/passwd]
-		* hping3 --flood ip_address
+		* `hping3 -2 -p 500 ip_address -d 137 -E attack.sig` {2=UDP, * attackers port 500, 137 victim port -E attack.sig
+		* `hping3 -2 -p 500 ip_address -d 100 -E attack.sig`  (buffer overflow the port)
+		* `hping3 --scan known ip_address -S` (Scan all the ports)
+		* `hping3 --scan '1-3000'`known ip_address -S` (Scan port from 1-3000)
+		* `hping3 127.0.0.1 --listen signature --safe --icmp` (create icmp packet to send)
+		* `hping3 127.0.0.1 --icmp -d 100 --sign signature --file /etc/passwd`
+		* `hping3 --flood ip_address`
 * Source port Scanning
 	* Select source port scan and you can potentially bytpass stateless filters
 		* Also in cisco routers the use of the "established" keyword (Ack==1) can indicate a weak ACL depending on the rule order
@@ -586,7 +586,7 @@
 		* Nmap -gathering
 		* canning-penumerationeandpfingerprintingT
 			* can get hte payload through the filtering device.
-## Enumeration
+## <a name="3.5"></a>3.5 Enumeration
 	Is used to gather more in depth information about the target, such as open shares and user account information.
 	Nmap [-sC, -A] for enumeration Scanning
 	Windows targets and Linux/Unix with Samba
