@@ -1,8 +1,9 @@
 # Contents
 # 1. [Vulnerability](#1).
 ### 0.0 [What is vulnerability](#0.0)
-### 1.1 [Vulnerability Assessmentcanning
-#enumerationnandgfingerprintingnd#fingerprintingation Testing](#1.3)
+### 1.1 [Vulnerability Assessment](#1.1)
+### 1.2 [Challenge of APT](#1.2)
+### 1.3 [ Penetration testing ](#1.3)
 ### 1.4 [ Host scanner ](#1.4)
 ### 1.5 [ Network scanner ](#1.5)
 ### 1.6 [ Tasks for vulnerability scanners ](#1.6)
@@ -55,7 +56,7 @@
 - What steps to mitigate organization.
 - Which vulnerability. are likely to present risk to organization.
 
-## <a name="1.2"></a>1.0 Challenge of APT
+## <a name="1.2"></a>1.2 Challenge of APT
 - Vulnerability scanner detect and prioritize vulnerability.
 - Suggest solution for known vulnerability.
 - Prioritize vulnerability based on their severity.
@@ -480,11 +481,11 @@ enumeration andufingerprinting.
 		* `-sP, -sn` in Nmap
 
 * netdiscover 
-	* checks for LAN
-	* have to be on the local subnet
-	* has a passive and active model
-	* good for initial site contact
-		* run on laptop while meeting clients. ;)
+	* Checks for LAN
+	* Have to be on the local subnet
+	* Has a passive and active model
+	* Good for initial site contact
+		* Run on laptop while meeting clients. ;)
 	* `netdiscover -r ip_address/range`
 	* `netdiscover -p` for passive
 	* `netdiscover -i eth0 -p` (listen the network)
@@ -493,10 +494,10 @@ enumeration andufingerprinting.
 * Nmap host discovery
 	* On local subnet uses ARP 
 	* ICMP is often blocked and host discovery can fail
-	* Use TCP host discovery sweep					
-	* [namp ip_address/range -PA80 -sn] 
-	* Ports
-		* What are the doors on these targets
+	* Use TCP host discovery sweep
+	* `namp ip_address/range -PA80 -sn` 
+	* `Ports`
+		* What are the doors on these targets.
 			* Remember all 0-65535 because Nmap only gives us the * enumeration of 1000 ports only.
 
 			* [-sS,-sT,-sU] ==> s= scan S= stealth scan; T= connect scan; U= UDP scan
