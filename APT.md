@@ -22,6 +22,12 @@
 ### 1.19 [Testing Security Methods ](#1.19)
 ### 1.20 [Hacking Methodology ](#1.20)
 #
+# 2. [Recon, footprinting  and information gathering ](#2.0)
+### 2.1 [Goal ](#2.1)
+### 2.2 [Information Gathering ](#2.2)
+### 2.3 [Target Discovery ](#2.3)
+### 2.4 [ Kali Tools ](#2.4)
+### 2.5 [ Resources ](#2.5)
 # <a name="1"></a>1. vulnerability 
 ## <a name="0.0"></a>0.0 What is Vulnerability
 - Which violates the product.
@@ -304,38 +310,39 @@
 # <a name="2.0"></a>2. Recon, footprinting  and information gathering
 ## <a name="2.1"></a>2.1 Goal
 * Discover the technical environment of the victim.
-* Gather useful non or semi technical background information to be used later to refine attacks
-* Published and open information
+* Gather useful non or semi technical background information to be used later to refine attacks.
+* Published and open information.
 
 ## <a name="2.2"></a>2.2 Information gathering
-* Assets
-* Locations/networks
-* Services
-* Client and server applications
-* Technical detail regarding the infrastructure
-	* OS
-	* IP addressing
-	* Internal, External, DMZ
-	* DNS-StuffMail servers
+* Assets.
+* Locations/networks.
+* Services.
+* Client and server applications.
+* Technical detail regarding the infrastructure.
+	* OS.
+	* IP addressing.
+	* Internal, External, DMZ.
+	* DNS-StuffMail servers.
 	
 ## <a name="2.3"></a>2.3 Target Discover
-* Steps taken to uncover the target information
-	* Gather initial target information
-	* Locate the network IP range
-	* Locate live machines
-	* Discover open ports/access points
-	* Services version and ports
-	* Map the network
+* Steps taken to uncover the target information:
+	* Gather initial target information.
+	* Locate the network IP range.
+	* Locate live machines.
+	* Discover open ports/access points.
+	* Services version and ports.
+	* Map the network.
 
 	* Registrars
-	* ARIN
-	* RIPENIC
-	* APNIC
-	* LACNIC
-	* AFRNIC
-	* whois.com 
+		* ARIN
+		* RIPENIC
+		* APNIC
+		* LACNIC
+		* AFRNIC
+
 	* Domain information 
-	* Regitery contact
+		* whois.com 
+	* Registry contact
 	* nslookup
 
 	* `$nslookup`
@@ -347,109 +354,106 @@
 	* `domain_name` Than for the next level use the server ip address you got from the information.
 	
 	* DNS information
-	* Five types of queries
-	* Registrar query
-		Gives information on potential domain matching the target.
-	Organizational query
-		Searches a specific registrar to obtain all instances of the targets name, showing many different company-associated domains.
-	Domain query
-		based on an organizational query of company-associated address, domain name, admin contact number, and system domain servers. The admin contact is useful to provide war dialer info and social engineering.
-	Network query
-		American Registry for Internet Numbers(ARIN) or another rester discover IP blocks.
-	Kali Tools
-	Information gathering
+	* Four types of queries:
+		1. Registrar query
+			* Gives information on potential domain matching the target.
+		2. Organizational query
+			* Searches a specific registrar to obtain all instances of the targets name, showing many different company-associated domains.
+		3. Domain query
+			* Based on an organizational query of company-associated address, domain name, admin contact number, and system domain servers. The admin contact is useful to provide war dialer info and social engineering.
+		4. Network query
+			* American Registry for Internet Numbers(ARIN) or another register discover IP blocks.
+## <a name="2.4"></a>2.4 Kali Tools
+* Information gathering
+	* dnsenum
+		* `dnsenum domain_name`
 
-	dnsenum
-		[dnsenum domain_name]
+		* `dnsmap`
 
-	dnsmap
+		* `dnsrecon`
 
-	dnsrecon
-		[dnsrecon -t std -d domain_name] -std standard -d dump
-		If recurrsion enabled than it means weakness in name
-		server.
+		* `dnsrecon -t std -d domain_name` std = standard d= dump
 
-	dnstracer
+		* If recursion enabled than it means weakness in name server.
 
-	dig
-		more powerful nslookup
-		[dig -t ns domain_name]
+	* dnstracer
 
-	dnswalk
+		* dig
+		* more powerful nslookup.
+		* `dig -t ns domain_name`
 
-	fierce
-		It extracts subdomain with ip address
-		Can conduct zone transwer as well
-			Rare in the networks of today (while tunlling)
-		Same process as 25 years ago.
+	* dnswalk
 
-	Netcraft
-		website
-		internal domains as well as site information
-		not always accurate
+	* fierce
+		* It extracts subdomain with ip address
+		* Can conduct zone transwer as well
+			* Rare in the networks of today (while tunlling)
+		* Same process as 25 years ago.
 
-	ThewayBackMachine
-		Maintains complete archive of web sites
-		Not as google cahce
-		Can download software that is no longer available.
+	* Netcraft
+		* website
+		* internal domains as well as site information
+		* not always accurate
 
-	Shodan
-		Search engine for IOT
-		Comprehensive queries
-			Can locate data about the target
-			Determine if the client has leaked sensitive information
-		[query on search: "port 445"]
+	* ThewayBackMachine
+		* Maintains complete archive of web sites
+		* Not as google cahce
+		* Can download software that is no longer available.
 
-	urlcrazy
+	* Shodan
+		* Search engine for IOT
+		* Comprehensive queries
+			* Can locate data about the target
+			* Determine if the client has leaked sensitive information
+			* `query on search: "port 445"`
 
-	Traceroute
-		shows the path to target
-			windows
-				uses icmp by defalut
-			nix
-				uses UDP by default
+	* urlcrazy
 
-	Competitive intelligence gathering
-		Data gathering
-		Data analysis
-		Information verification
-		Search Engine: Satellite and terrestrial photos
-		Market research
-		Government contracts
+		* Traceroute
+		* Shows the path to target
+			* Windows
+				* Uses icmp by defalut
+			* nix
+				* Uses UDP by default
 
-	Email Addresses
-		Can enumerate email addresses and identify potential social engineering targets.
-		theHarvester
-			[theharvester -d domain_name -l 500 -b google -h test.html]
-			finds all the email in the website
+	* Competitive intelligence gathering
+		* Data gathering
+		* Data analysis
+		* Information verification
+		* Search Engine: Satellite and terrestrial photos
+		* Market research
+		* Government contracts
 
-		Metagoofil
-			[metagoofil -d domain_name -l 20 -t doc,pdf -n 5 -f enum.html -o enum-scan]
-			Advanced search capability
-			Downloads detected files
-		
-		Google Dorks 
-			* googleguide.com/advanced_operators.html
-		
-		Bing Dorks 
-			* msdn.microsoft.com/en-us/library/ff795620.aspx
-		
-		Bishopfox
-			* Bishopfox.com
-			Success requires creativity in searches
-			
-		Maltego
-			Holygrail
-							
-Resources
-	DNS-Stuff
-	The wayback machine
-	whois
-	The victims own published information 
-	* know what the organization user resume
-	
+	* Email Addresses
+		* Can enumerate email addresses and identify potential social * engineering targets.
+		* theHarvester
+			* `theharvester -d domain_name -l 500 -b google -h test.html`
+			* finds all the email in the website
+		* Metagoofil
+			* `metagoofil -d domain_name -l 20 -t doc,pdf -n 5 -f enum.html -o enum-scan`
+			* Advanced search capability
+			* Downloads detected files
 
-**	SCANNING, ENUMERATION AND FINGERPRINTING
+		* Google Dorks 
+			* [Google Operators](https://googleguide.com/advanced_operators.html)
+
+		* Bing Dorks 
+			* [Bing Operators](msdn.microsoft.com/en-us/library/ff795620.aspx)
+
+		* Bishopfox
+			* [Bishopfox](Bishopfox.com)
+			* Success requires creativity in searches
+		* Maltego
+			* Holygrail
+## <a name="2.5"></a>2.5 Resources
+* DNS-Stuff
+* [The wayback machine](web.archive.org)
+* [whois](whois.com)
+* The victims own published information 
+* know what the organization user resume
+
+
+#	2. SCANNING, ENUMERATION AND FINGERPRINTING
 		Goal
 			Discover the specific detail that will allow matching of present assests to tvulnerabilities and exploits.
 			Scannig is the active step of attempting to connect to systems to elicit a response
