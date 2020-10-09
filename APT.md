@@ -38,6 +38,14 @@
 ### 3.6 [ Application and Vendor ](#3.6)
 ### 3.7 [ Defense System ](#3.7)
 #
+# 4. [  Identify vulnerability on network ](#4.0)
+### 4.1 [ Goal ](#3.1)
+### 4.2 [  Network Vulnerability Scanning ](#3.2)
+### 4.3 [  Scanner Configuration ](#3.3)
+### 4.4 [ Scanning Tactics and Tools ](#3.4)
+### 4.5 [ Scan Analysis at the Local Network Level ](#3.5)
+### 4.6 [ Websites for vulnerability check ](#3.6)
+#
 # <a name="1"></a>1. vulnerability 
 ## <a name="0"></a>Brief discussion on " What is Vulnerability ?"
 - Which violates the product.
@@ -585,7 +593,7 @@
 		* DDoS
 			* `hping3 --flood ip_address`
 * Source port Scanning
-	* Select source port scan and you can potentially bytpass stateless filters
+	* Select source port scan and you can potentially bypass stateless filters
 		* Also in cisco routers the use of the "established" keyword (Ack==1) can indicate a weak ACL depending on the rule order
 	* Source ports that commonly bypass the filtering
 		* port 20 ftp
@@ -621,7 +629,7 @@
 * wpscan
 	* wordpress vulnerability scanner
 	* Can use for enumeration 
-		* verision
+		* version
 		* users
 		* plugins
 		* themes
@@ -640,7 +648,7 @@
 		* 1700 plugins
 		* supports different levels
 		* -1
-			* passive(defult)
+			* passive(default)
 		* -2
 			* Polite
 		* -3
@@ -691,12 +699,12 @@
 * UDP 161 
 	* Simple Network Management Protocol (SNMP)
 * TCP/UDP 389 
-	* Lightweight Direct3ory Acess protocol (LDAP)
+	* Lightweight Directory access protocol (LDAP)
 * RCP 445 
 	* SMB over TCP/IP
 * TCP/UDP 3268 
 	* Global catalog service
-* Identify Vulnerablities
+* Identify Vulnerabilities.
 	* Manual
 	* Tools
 * Exploit
@@ -714,210 +722,210 @@
 * Vendor
 * Inbound and outbound ports allowed
 * IDS used *what the organization for detecting vulnerability
+#
+# <a name="4.0"></a>4. Identify vulnerability on network
+## <a name="4.1"></a>4.1 Goal 
+* Discover the best or most likely way to compromise victims.
+* Accurate enumeration makes this easier
+* Discuss Vulnerability Scanning
+	* Identify the attack surface
+	* Determine the risk
+	* Assets the severity of the findings 
+	* Draft a report of the findings Develop a remediation plan
 
-# 4. Identify vulnerability
-* Goal 
-			Discover the best or most likely way to compromise victims.
-			Accurate enumeration makes this easier
-			Discuss Vulnerability Scanning
-				Identify the attack surface
-				Determine the risk
-				Asses the severity of the findings 
-				Draft a repoort of the findings Develop a remendiation  plan
-				
-				Network Vulnerability Scanning
-					Look at the data at the network level 
-					Assess the services accessible to the scanner
-					The DMZ and other accessible zones are investigated
-					Review the protocol and traffic of the subnet ... routing
-					Determines the attack surface at the network layer and transport layer
-						TCP
-						UDP
-						
-				Host Vulnerability Scanners
-					Review the attack surface on the host machine
-					Assesment of the applications that are installed
-					An investigation of the process running on the machine
-					Work best with credential
-				
-				Scanner Configuration
-					Usually involves setting scan parameters
-					Set the network protocols and ports to test
-					Identify the methods of host discovery (If ICMP is blocked than we have to move with TCP host discovery and than we make the policy)
-					Create canningy enumerationuandefingerprinting		Most scanners have templatese that assist
-					Review configuration of scanners
-					Scan Templates
-				Nessus
-				Containis a large number of templates for differrent Scanning situations
-				Dependent on the license that you are registered with.
-					Home
-						Limited templates
-				Plugins are the audit is coded as a plugin within Nessus
-				More than 80k plugins in Nessus
-				Updating the plugins is critical
-					online
-						check updates every 24hrs
-					offline
-						Requires challenge andd response codes
-						Needs the key provided by the tennable nessus
-					Plugin  Families
-						Different plufins based on requirements
-							OS
-							Application
-					Sub-plugins
-						Each plugin can have sub-plugins
-							More granular information about the check
-					Built-in-policies
-						Nessus provides a variety of scan templates
-						Most commonly
-							Basic network scan
-								Provides a compreehensive scan for most networks
-								Does not scan all 65536 ports
-									Have to change the settings for that
-					Check for available plugin
-						Each plugin represents an audit check
-						Access the plugins
-					Custom Scan
-						When you elect to do a custom scan you have control over what plugins loaded, and you can manually select the ones you needed
-							makes for a more granular approach to the testing
-							Can take time to configure
-							you need to have knowledge of what you are lookiing for to get the best results.
-					Tailoring Scans
-						5 groups
-							Discovery
-								Can select ports
-								speed
-								port scanner settings
-								Protocols for pinging potential targetes
-									Useful when a firewall is on
-										ICMP blocked by defalut
-							Assessment
-								Can set more specific scan parameters
-							Report
-								Two Componets
-									Processing
-									Output
-							Advanced
-								Configure performance paramenters
-								Low bandwidth links
-						Scan Teplates
-							Read the user guide it defines the settings within each templates.
-						Scan Analysis Process
-							Take the results and review themes
-							Identify the points of weakness
-								Hosts
-								Protocol
-								Application
-							Investigate the listing of vulnerabilities
-							Interrogate the vulnerability information
-						Results
-							Hosts
-							Vulnerablities
-							Remediation
-								Maintains the list of required remediations for that scan configuration.
-							History
-								Maintains a historical listing of the scans against that configuration
-									IP
-									Hostname
-									Range
-									Application
-							
-				OpenVAS
-					OpenSource
-					Fork of the original Nessus project
-					Its powerful but takes more time than nessus. (same developer)							
-					OpenVAS Scan Tasks
-					OpenVAS Port Configuration
-						Similar to Nessus
-						Contains plugins
-						Same as Nessus concepts
-					OpenVAS scan configuration 
-						customize according to your target.
-					OpenVAS NVTs
-					OpenVAS CVE
-					OpenVAS OS Listing
-					OpenVAS Host Listing
-					OpenVAS Topology
-						Shows the network map of the target machines that have been scanned
-					OpenVAS Result
-					OpenVAS Update
-						[openvas-feed-update]
-					OpenVAS Reports
-				Scan Analysis Process
-						Take the results and review themes
-						Identify the points of weakness
-							Hosts
-							Protocol
-							Application
-						Investigate the listing of vulnerabilities
-						Interrogate the vulnerability information
-						Evaluvate the recommended solution
-							Write your own report going through all the report
-							See if Nessus has provided an output
-							Output can be use this in your report as well
-						Review the risk information and additional details
-							CVSS
-							Vulnerability information
-							Exploitable with
-							References
-						Examine at least one reference
-							CVE
-							BID
-						Review the information and compare to your scanner data.
-						BugtraqID
-							Prioritise acanningg enumerationoand	fingerprintingexploits as well
-						
-					Scan Analysis at the Network Level
-						Before you scan a production network	
-							scan a test machine
-						Evaluate the Scanning activity at the network level
-							Use a protocol analyzer
-						Tools
-							TCPdump
-								Command line
-							Wireshark
-								GUI
-								Advanced protocol dissection
-								Has extensive capability
-								Filtering
-									Can capture or display specific data based on packet attributes.
-									(Analyse the response).
-								Capability to examine sessions (check the attack surface)
-						Nessus in wireshark
-							Can review the network trafic sent to targets
-							Allows us to determine the potential impact of a scan
-							Can disable the plugins that we obsesrve that may cause potential network problems.
-							(Packet level skill allows us to master the scanner)
-						Wireshark Statistics
-							Provide a view of the captured data
-							Can see traffic from point to point
-							Review the endpoint conversations
-							HTTP Statistics
-								Powerful way to view strings sent to HTTP (200 OK you have the vulnerability)
-						
-							
-			Practical
-				Website vulnerability check
-					nvd.nist.gov
-					cvedetails.com
-					securityfocus.com (mantains the bugtrack canning		enumerationtandifingerprintingsed without patch)
+## <a name="4.2"></a>4.2 Network Vulnerability Scanning
+* Look at the data at the network level 
+* Assess the services accessible to the scanner
+* The DMZ and other accessible zones are investigated
+* Review the protocol and traffic of the subnet ... routing
+* Determines the attack surface at the network layer and transport layer
+	* TCP
+	* UDP
+	
+* Host Vulnerability Scanners
+	* Review the attack surface on the host machine
+	* Assessment of the applications that are installed
+	* An investigation of the process running on the machine
+	* Work best with credential
 
-					
-					
-				Tools
-					Tools take time like days for Scanning
-					OpenVAS -kali
-					WebGoat like a beebox by OWASP
-					Vega -kali
-						enter ip_address
-						
-			
-		Utilize enumeration data and correalte with vulnerabilities and exploits.
-		Use known characteristics of the victims.
-			OS
-			Applications
-			DefensesMatch to available exploits	Not all exploits successfulley attack all vulnerable targets.
-			Zero-day exploits are ideal.
+## <a name="4.3"></a>4.3 Scanner Configuration
+* Usually involves setting scan parameters
+* Set the network protocols and ports to test
+* Identify the methods of host discovery (If ICMP is blocked than we have to move with TCP host discovery and than we make the policy)
+* Create a policy for the actual environment
+* Most scanners have templates that assist
+* Review configuration of scanners
+* Scan Templates
+
+## <a name="4.4"></a>4.4 Scanning Tactics and Tools
+* Nessus
+	* Contains a large number of templates for different Scanning situations
+	Dependent on the license that you are registered with.
+	* Home
+		* Limited templates
+	* Plugins are the audit is coded as a plugin within Nessus
+	* More than 80k plugins in Nessus
+	* Updating the plugins is critical
+	* online
+		* check updates every 24hrs
+	* offline
+		* Requires challenge and response codes
+		* Needs the key provided by the tennable nessus
+	* Plugin  Families
+		* Different plugins based on requirements
+			* OS
+			* Application
+	* Sub-plugins
+		* Each plugin can have sub-plugins
+			* More granular information about the check
+	* Built-in-policies
+		* Nessus provides a variety of scan templates
+		* Most commonly
+			* Basic network scan
+				* Provides a comprehensive scan for most networks
+				* Does not scan all 65536 ports
+					* Have to change the settings for that
+	* Check for available plugin
+		* Each plugin represents an audit check
+		* Access the plugins
+	* Custom Scan
+		* When you elect to do a custom scan you have control over what plugins loaded, and you can manually select the ones you needed
+			* makes for a more granular approach to the testing
+			* Can take time to configure
+			* you need to have knowledge of what you are looking for to get the best results.
+	* Tailoring Scans
+		* 5 groups
+			* Discovery
+				* Can select ports
+				* speed
+				* port scanner settings
+				* Protocols for pinging potential targets
+					* Useful when a firewall is on
+						* ICMP blocked by default
+			* Assessment
+				* Can set more specific scan parameters
+			* Report
+				* Two components
+					* Processing
+					* Output
+			* Advanced
+				* Configure performance parameters
+				* Low bandwidth links
+		* Scan template
+			* Read the user guide it defines the settings within each templates.
+		* Scan Analysis Process
+			* Take the results and review themes
+			* Identify the points of weakness
+				* Hosts
+				* Protocol
+				* Application
+			* Investigate the listing of vulnerabilities
+			* Interrogate the vulnerability information
+		* Results
+			* Hosts
+			* Vulnerabilities.
+			* Remediation
+				* Maintains the list of required remediation for that scan configuration.
+			* History
+				* Maintains a historical listing of the scans against that configuration
+					* IP
+					* Hostname
+					* Range
+					* Application
+* OpenVAS
+	* OpenSource
+	* Fork of the original Nessus project
+	* Its powerful but takes more time than nessus. (same developer)
+	* OpenVAS Scan Tasks
+	* OpenVAS Port Configuration
+		* Similar to Nessus
+		* Contains plugins
+		* Same as Nessus concepts
+	* OpenVAS scan configuration 
+		* Customize according to your target.
+	* OpenVAS NVTs
+	* OpenVAS CVE
+	* OpenVAS OS Listing
+	* OpenVAS Host Listing
+	* OpenVAS Topology
+		* Shows the network map of the target machines that have been scanned
+	* OpenVAS Result
+	* OpenVAS Update
+		* `openvas-feed-update`
+	* OpenVAS Reports
+* Scan Analysis Process
+	* Take the results and review themes
+	* Identify the points of weakness
+		* Hosts
+			* Protocol
+			* Application
+		* Investigate the listing of vulnerabilities
+		* Interrogate the vulnerability information
+		* Evaluate the recommended solution
+			* Write your own report going through all the report
+			* See if Nessus has provided an output
+			* Output can be use this in your report as well
+		* Review the risk information and additional details
+			* CVSS
+			* Vulnerability information
+			* Exploitable with
+			* References
+		* Examine at least one reference
+			* CVE
+			* BID
+		* Review the information and compare to your scanner data.
+		* BugtraqID
+			* Prioritize according to RCE or DoS
+			* Can show exploits as well
+		
+## <a name="4.5"></a>4.5 Scan Analysis at the Local Network Level
+* Before you scan a production network	
+	* scan a test machine
+* Evaluate the Scanning activity at the network level
+	* Use a protocol analyzer
+* Tools
+	* TCPdump
+		* Command line
+	* Wireshark
+		* GUI
+		* Advanced protocol dissection
+		* Has extensive capability
+		* Filtering
+			* Can capture or display specific data based on packet attributes.
+			(Analyze the response).
+		* Capability to examine sessions (check the attack surface)
+* Nessus in wireshark
+	* Can review the network traffic sent to targets
+	* Allows us to determine the potential impact of a scan
+	* Can disable the plugins that we observe that may cause potential network problems.
+	* Packet level skill allows us to master the scanner
+* Wireshark Statistics
+	* Provide a view of the captured data
+	* Can see traffic from point to point
+	* Review the endpoint conversations
+	* HTTP Statistics
+		* Powerful way to view strings sent to HTTP (200 OK you have the vulnerability)
+## <a name="4.6"></a>4.6 Website vulnerability check
+* [NIST](nvd.nist.gov)
+* [CVE Details](cvedetails.com)
+* [Security Focus](securityfocus.com)
+	* Maintains the bugtrack ID
+* [Zero Day](zerodayinitiative.com)
+	* Disclose vulnerability without patch.
+
+* Tools
+	* Tools take time like days for Scanning.
+	* OpenVAS -kali.
+	* WebGoat like a beebox by OWASP.
+	* Vega -kali.
+		* enter ip_address
+
+* Utilize enumeration data and corelate with vulnerabilities and exploits.
+	Use known characteristics of the victims.
+	* OS
+	* Applications
+	* DefensesMatch to available exploits	Not all exploits successfully attack all vulnerable targets.
+	* Zero-day exploits are ideal.
 
 **	EXPLOIT
 
