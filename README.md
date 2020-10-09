@@ -3,7 +3,7 @@
 
 
 ## Contents
-# 1. [ Vulnerability ](APT.md#1.0).
+## 1.  [ Vulnerability ](APT.md#1.0).
 ###  [ Brief discussion on "What is vulnerability ?" ](APT.md#0)
 ### 1.1 [ Vulnerability Assessment ](APT.md#1.1)
 ### 1.2 [ Challenge of APT ](APT.md#1.2)
@@ -26,14 +26,14 @@
 ### 1.19 [ Testing Security Methods ](APT.md#1.19)
 ### 1.20 [ Hacking Methodology ](APT.md#1.20)
 #
-# 2. [ Recon, footprinting  and information gathering ](APT.md#2.0)
+## 2. [ Recon, footprinting  and information gathering ](APT.md#2.0)
 ### 2.1 [ Goal ](APT.md#2.1)
 ### 2.2 [ Information Gathering ](APT.md#2.2)
 ### 2.3 [ Target Discovery ](APT.md#2.3)
 ### 2.4 [ Kali Tools ](APT.md#2.4)
 ### 2.5 [ Resources ](APT.md#2.5)
 #
-# 3. [ Scanning, enumeration and fingerprinting ](APT.md#3.0)
+## 3. [ Scanning, enumeration and fingerprinting ](APT.md#3.0)
 ### 3.1 [ Goal ](APT.md#3.1)
 ### 3.2 [ Scanning analysis ](APT.md#3.2)
 ### 3.3 [ Scanning Methodology ](APT.md#3.3)
@@ -42,7 +42,7 @@
 ### 3.6 [ Application and Vendor ](APT.md#3.6)
 ### 3.7 [ Defense System ](APT.md#3.7)
 #
-# 4. [  Identify vulnerability on network ](APT.md#4.0)
+## 4. [  Identify vulnerability on network ](APT.md#4.0)
 ### 4.1 [ Goal ](APT.md#4.1)
 ### 4.2 [  Network Vulnerability Scanning ](APT.md#4.2)
 ### 4.3 [  Scanner Configuration ](APT.md#4.3)
@@ -50,14 +50,14 @@
 ### 4.5 [ Scan Analysis at the Local Network Level ](APT.md#4.5)
 ### 4.6 [ Websites for vulnerability check ](APT.md#4.6)
 #
-# 5. [  Vulnerability Exploitation  ](APT.md#5.0)
+## 5. [  Vulnerability Exploitation  ](APT.md#5.0)
 ### 5.1 [ Goal ](APT.md#5.1)
 ### 5.2 [  Exploitation ](APT.md#5.2)
 ### 5.3 [  Remote Password Attack ](APT.md#5.3)
 ### 5.4 [  Exploit Framework ](APT.md#5.4)
 ### 5.5 [ Payload ](APT.md#5.5)
 #
-# 6. [ POST Exploitation ](APT.md#6.0)
+## 6. [ POST Exploitation ](APT.md#6.0)
 ### 6.1 [ Goals ](APT.md#6.1)
 ### 6.2 [ Local Assessment ](APT.md#6.2)
 ### 6.3 [ Escalating Privileges ](APT.md#6.3)
@@ -70,11 +70,11 @@
 ### 6.10 [  Exploit suggester ](APT.md#6.10)
 ### 6.11 [ Malwar3 Writing ](APT.md#6.11)
 #
-# 7. [ EVASION ](APT.md#7.0)
+## 7. [ EVASION ](APT.md#7.0)
 ### 7.1 [ Evading defensive system ](APT.md#7.1)
 ### 7.2 [ COVER YOUR TRACKS ](APT.md#7.2)
 #
-# 8. [ Advance tips and tactics ](APT.md#8.0)
+## 8. [ Advance tips and tactics ](APT.md#8.0)
 ### 8.1 [ Goal ](APT.md#8.1)
 ### 8.2 [ Creating and using proxychains ](APT.md#8.2)
 ### 8.3 [ Explore web shells ](APT.md#8.3)
